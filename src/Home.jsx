@@ -3,6 +3,7 @@ import Navigasi from './Components/navbar/Navigasi'
 import Footer from './Components/footer/footer'
 import React from 'react';
 import {Container,Col,Button,Card, Row, CardGroup} from 'react-bootstrap';
+
 //css
 import './home.css';
 //import image Assets
@@ -12,6 +13,7 @@ function Home() {
   return (
     <>
     <Navigasi/>
+    
     <Container fluid >
       <Container>
         <Row className="mt-sm-5 mt-2 mx-2">
@@ -19,9 +21,9 @@ function Home() {
                 <h4 className="jasa">Jasa Legalisir Indonesia</h4>
                 <h6 className="pelayanan">Pelayanan Lengkap, cepat, dan terpercaya. <br/> Dengan pengalaman kami yang sudah bertahun tahun</h6>
                 <div className="pt-sm-4 pt-1">
-                <Button variant="primary" size="sm" active>
-                    Hubungi Kami
-                </Button>{' '}
+                <Button className="m-2" variant="primary" size="sm" active href="https://wa.me/6285362479992" >
+                Hubungi Kami
+                </Button>
                 <Button  variant="primary" size="sm" active>
                     Lihat Layanan
                 </Button>
@@ -36,13 +38,14 @@ function Home() {
             <h1 className="temukan">Temukan Pelayanan <br/> Terbaik Kami</h1>
             <h6 className="pelayanan-cepat">Pelayanan Cepat, Aman, dan sudah di percaya oleh pelanggan kami <br/> selama bertahun tahun</h6>
         </div>
+        <Container className="container-sm">
         <Card className="mt-3 border-0 artikel">
             <Row>
                 <Col className="col-md-2 col-12">
                     <Card.Img src={Akta} className="img-fluid m-1 ms-1"/>
                 </Col>
                 <Col className="col-md-10 col-12">
-                    <Card.Title className="mt-2">Akta Kematian</Card.Title>
+                    <h1 className="mt-2 artikel-title">Akta Kematian</h1>
                     <Card.Text> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta cumque ipsa, ut esse, obcaecati officia laboriosam iusto unde eum perspiciatis incidunt velit maxime numquam iure odio hic voluptatum nemo accusantium? </Card.Text>
                 </Col>
             </Row>
@@ -69,6 +72,7 @@ function Home() {
                 </Col>
             </Row>
         </Card>
+        </Container>
         <div className="text-center">
         <Button className=" m-3" variant="primary" size="sm">Lihat semua layanan</Button>
         </div>

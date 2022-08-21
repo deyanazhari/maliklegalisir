@@ -23,6 +23,11 @@
     font-weight: 300;
     font-size: 15px;
 }
+.artikel-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px; 
+}
 
 @media screen and (max-width:700px){
     .home-icon{

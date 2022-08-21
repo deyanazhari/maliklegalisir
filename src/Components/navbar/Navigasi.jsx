@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container,Navbar,Nav,Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css'
 function Navigasi(){
@@ -15,8 +16,9 @@ function Navigasi(){
             <Nav.Link className="navbar-font m-2" href="#link">Layanan</Nav.Link>
             <Nav.Link className="navbar-font m-2" href="#link">Artikel</Nav.Link>
             <Nav.Link className="navbar-font m-2" href="#link">Tentang Kami</Nav.Link>
-            <Button variant="outline-primary" className=" navbar-font">Admin</Button>
-            
+            <Link to="/login" className="pt-1">
+            <Button variant="outline-primary" className=" navbar-font h-30" >Admin</Button>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
