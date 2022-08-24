@@ -12,10 +12,12 @@ function Navigasi(){
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav ">
           <Nav>
-            <Nav.Link className="navbar-font m-2" href="#home">Beranda</Nav.Link>
-            <Nav.Link className="navbar-font m-2" href="#link">Layanan</Nav.Link>
+            <Nav.Link className="navbar-font m-2" href="/">Beranda</Nav.Link>
+            
+            <Nav.Link className="navbar-font m-2" href="/layanan">Layanan</Nav.Link>
+            
             <Nav.Link className="navbar-font m-2" href="#link">Artikel</Nav.Link>
-            <Nav.Link className="navbar-font m-2" href="#link">Tentang Kami</Nav.Link>
+            <Nav.Link className="navbar-font m-2">Tentang Kami</Nav.Link>
             <Link to="/login" className="pt-1">
             <Button variant="outline-primary" className=" h-30" >Admin</Button>
             </Link>

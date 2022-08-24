@@ -1,0 +1,44 @@
+.home-layanan {
+    width: 100%;
+     min-height: 70vh;
+     background-size: cover; 
+     background-image:linear-gradient(0deg, rgba(0,0,0,0.40372122970281865) 0%, rgba(0,0,0,0.4009201092546394) 100%), url(../../Assets/Bg-Jakarta.jpg);
+    background-position: center;
+     background-repeat: no-repeat;
+     }
+     .layanan-text{
+        position:relative;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 35px;
+        color: #ffff;
+        text-decoration: none;
+    }
+     .layanan-text:after{
+        content:"";
+        position:absolute;
+        background-color: #68bcec;
+        height: 2px;
+        width: 100%;
+        left:0;
+        bottom:-15px;
+    }
+    .layanan-kami{
+        
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 35px;
+        color: black;
+        
+    }
+    .layanan-kami:after{
+        content:"";
+        text-align: center;
+        
+        background-color: #68bcec;
+        justify-content: center;
+        height: 3px;
+        width: 20%;
+        left:0;
+        bottom:-15px;
+    }

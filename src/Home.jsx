@@ -2,12 +2,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigasi from './Components/navbar/Navigasi'
 import Footer from './Components/footer/footer'
 import React from 'react';
-import {Container,Col,Button,Card, Row, CardGroup,Nav} from 'react-bootstrap';
+import {Container,Col,Button,Card, Row, CardGroup} from 'react-bootstrap';
 
 //css
 import './home.css';
 //import image Assets
-import Akta from './Assets/Akta.jpg'
 import Homeicon from './Assets/homeicon.png'
 import Pelayanan from './Assets/pelayanan.png'
 function Home() {
