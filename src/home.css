@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Faustina:wght@500;600&family=Great+Vibes&family=Montserrat:ital,wght@0,400;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,300;1,300&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap');
+
+.artikel{
+    box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
+    border-radius: 20px;
+}
+.artikel-layanan{
+    box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
+    border-radius: 20px;
+}
+
+.jasa{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+.pelayanan{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 14px;  
+    text-align: start;
+}
+.temukan{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 45px; 
+ 
+}
+.pelayanan-cepat{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: black;
+}
+.artikel-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px; 
+}
+.artikel-text{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 12px; 
+    color: black;
+}
+.artikel-text2{
+    margin-top: 250px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 45px; 
+}
+.artikel-text3{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 16px; 
+    color:black;
+}
+.button-color{
+    background-color: rgb(238, 18, 18);
+}
+
+.botton-lihat{
+    margin-bottom: 250px;
+}
+@media screen and (max-width:600px){
+    
+}
+@media screen and (max-width:600px){
+    .home-icon{
+        margin-top: 10px;
+        width: 150px;
+        height: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .temukan{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 30px; 
+     
+    }
+    .botton-lihat{
+        margin-bottom: 10px;
+    }
+}
