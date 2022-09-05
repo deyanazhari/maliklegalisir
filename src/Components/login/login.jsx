@@ -1,50 +1,50 @@
-import React from 'react'
+import React, {useState, Fragment} from 'react'
 import {Container,Row,Col,Button, Form, Card} from 'react-bootstrap';
+import {Navigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css';
-import Bg from './images/bg-1.jpg'
+import axios from 'axios';
 
-function Login() {
+    
+
+
+const Login =() => {
+
+    const[username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [navigate, setNavigate] = useState('false')
+    
+        const onChangeUsername = (e) => {
+            const value = e.target.value
+            setUsername(value)
+        }
+        const onChangePassword = (e) => {
+            const value = e.target.value 
+            setPassword(value)
+        }
+        const submitLogin = () => {
+            const data ={
+                username: username,
+                password: password
+            }
+            axios.post('https://api.legalisirjakarta.com/login', data)
+            .then(result => {
+                if(result){
+                    localStorage.setItem('id', result.data.id)
+                    setNavigate(true)
+                }
+                console.log(result.data.id)
+        })
+        }
+
     return(
         <>
-        {/* <Row className="justify-content-center">
-          <Col className="col-md-7 col-7 col-lg-5">
-              <div className="wrap">
-                      <div className="login-wrap p-4 p-5">
-                          <div className="d-flex">
-                              <div className="w-100">
-                                  <h3 className="mb-4">Login | Admin</h3>
-                              </div>
-                          <Form className="signin-form">
-                              <Form.Group className="mt-3">
-                                  <Form.Input type="text" className="form-control" >
-                                      <Form.Label className="form-control-placeholder" id="username">Username</Form.Label>
-                                  </Form.Input>
-                              </Form.Group>
-                              <Form.Group>
-                                  <Form.Input id="password-field"
-                                  type="password"
-                                  className="form-control"
-                                  
-                                  >
-                                      <Form.Label className="form-control-placeholder">Password
-                                          
-                                      </Form.Label>
-                                  </Form.Input>
-                              </Form.Group>
-                              <Form.Group>
-                                  <Button 
-                                  type="submit"
-                                  className="form-control btn btn-primary rounded submit px-3">
-                                      Login
-                                  </Button>
-                              </Form.Group>
-                          </Form>
-                      </div>
-                   </div>
-              </div>
-          </Col>
-        </Row> */}
+        <Fragment>
+            {
+                navigate && (
+                    <Navigate to="/Admin"/>
+                )
+            }
         <section className="ftco-section">
             <Container>
                     <Row className="justify-content-center">
@@ -60,15 +60,14 @@ function Login() {
                                         <Form className="sigin-form">
                                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                                 
-                                                <Form.Control type="email" placeholder="Enter email" />
+                                                <Form.Control type="text" placeholder="Enter email" value={username} onChange={onChangeUsername} />
                                             </Form.Group>
 
                                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                                
-                                                <Form.Control type="password" placeholder="Password" />
+                                                <Form.Control type="password" placeholder="Password" value={password} onChange={onChangePassword} />
                                             </Form.Group>
                                             
-                                            <Button variant="primary" type="submit">
+                                            <Button variant="primary" type="submit" onClick={submitLogin}>
                                                 Submit
                                             </Button>
                                     </Form>
@@ -79,6 +78,7 @@ function Login() {
                     </Row>
             </Container>
         </section>
+        </Fragment>
         </>
     )
 }

@@ -3,7 +3,7 @@ import './Artikel.css'
 import Navbar from '../navbar/Navigasi'
 import {Container, Button,Row, Col, Card, CardGroup} from 
 'react-bootstrap'
-import Pelayanan from '../../Assets/pelayanan.png'
+import qs from 'querystring';
 import Footer from '../footer/Footer.jsx';
 import axios from 'axios';
 const api = 'https://api.legalisirjakarta.com'
@@ -18,15 +18,15 @@ export default class Artikel extends Component {
         }
         componentDidMount(){
          axios.get(api+'/article').then(res=> {
-             console.log(res.data.data.article)
+             console.log(res.data.data)
              this.setState({
-                 artikel:res.data.data.article
+                 artikel:res.data.data
              })
          })
         }
     render(){
         return(
-            <>
+            <> 
             <Navbar/>
             <Container fluid className="home-layanan">
                 <div className=""></div>
@@ -40,10 +40,10 @@ export default class Artikel extends Component {
             <CardGroup className="my-4 ">
             {this.state.artikel.map(artikel => 
             <div className='col-sm-3 col-md-3 col-12'>
-        <Card style={{ width: '18rem' }} className="m-2 m-sm-3 border-0 artikel-layanan ">
+        <Card  style={{ width: '18rem' }} className="m-2 m-sm-3 border-0 artikel-layanan ">
         <Card.Img variant="top" className="rounded-2 " src={artikel.imageUrl} />
         <Card.Body className=''>
-          <Card.Title className='artikel__text '>{artikel.title}</Card.Title>
+          <Card.Title maxlength="10" className='artikel__text '>{artikel.title}</Card.Title>
           <Card.Text className="artikel-text text-justify">
             {artikel.description}
             

@@ -19,7 +19,8 @@ function Footer(){
 			<h6 className='foot__text p-5'>Jl.Swadaya Pam No.32, RT.6/RW.7. Jatinegara Kec. Cakung Kota Jakarta Timur<br/> Daerah Khusus Ibukota Jakarta <br/>13930</h6>
 			<div className='foot__bot'>
 			<img className="foot__img" src={Instagram}/>
-			<img className="foot__img mx-4" src={Whatsapp}/>
+			<a  data-toggle="tooltip" data-placement="top" title="Twitter" href="https://wa.me/6285362479992">
+			<img className="foot__img mx-4"  src={Whatsapp}/></a>
 			<img className="foot__img " src={Tiktok}/>
 			<img className="foot__img mx-4" src={Facebook}/>
 			</div>
