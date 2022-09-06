@@ -1,10 +1,125 @@
-import React, { Component } from 'react'
-import {Form, Col, Row} from 'react-bootstrap'
+import React, {Component} from 'react'
+import {Form, Button, Row} from 'react-bootstrap'
 import './Artikel.css'
-export default class artikel extends Component {
+import axios from 'axios';
+class Artikel extends Component{
+
+        
+        state = {
+            title: null,
+            description: null,
+            imageUrl : null
+        }
+
+    handleFile(e){
+
+        let imageUrl = e.target.files
+        this.setState({imageUrl:imageUrl})
+        let title = e.target.text 
+        this.setState({title:title})
+        let description = e.target.text 
+        this.setState({description:description})
+
+    }
     
-  render() {
+    handleUpload(e){
+        console.log(this.state, "the state")
+        axios({
+            url : 'https://api.legalisirjakarta.com/article',
+            method: "POST",
+            headers:{
+                'Content-Type' : 'multipart/form-data'
+            },
+            
+        })
+        .then(res => {
+
+        },(err) => {
+
+        })
+    }
+
+
+    // const [data, setDate] = useState([])
+    // const [title, setTitle] = useState ('')
+    // const [description, setDescription ] = useState('')
+    // const [imageUrl, setImageUrl] = useState('')
+    // const [body, setBody] = useState('')
+
+    // useEffect(() => {
+    //     axios.get('https://api.legalisirjakarta.com/article')
+    //     .then(res => {
+            
+    //         setDate(res.data)
+    //     }).catch(err => console.log(err))
+    // },[])
+    // const postData = (e) => {
+    //     e.preventDefault();
+    //     axios.post ('https://api.legalisirjakarta.com/article',{
+    //         title,
+    //         description,
+    //         imageUrl
+    //     }).then(res => console.log('posting data',res)).catch(err => console.log(err))
+    // } 
+    
+    // const API = "https://api.legalisirjakarta.com/article"
+    // const [data, setData] = useState ({
+    //     title: "",
+    //     description : "",
+    //     imageUrl : ""
+    // })
+    // function submit(e) {
+    //     e.preventDefault();
+    //     axios.post(API,{
+    //         title : data.title,
+    //         description : data.description,
+    //         imageUrl: data.imageUrl
+    //     })
+    // }
+    // function handle(e){
+    //     const newdata={...data}
+    //     newdata[e.target.id] = e.target.value 
+    //     setData(newdata)
+    //     console.log(newdata)
+    // }
+
+    // constructor(){
+    //     super()
+    //     this.state = {
+    //     users:[],
+    //     title: null,
+    //     description: null,
+    //     imageUrl: ""
+        
+
+    //     }
+    // }
+    // saveDataToAPI(e){
+    //     e.preventDefault()
+    //     const apiUrl = 'https://weddingbewok.herokuapp.com/attendance'
+    //     const attendance = {
+    //     name :this.state.nama,
+    //     person:this.state.person,
+    //     comments:this.state.comments,
+    //     attend: this.state.attend
+    //     }
+    //     axios.post(apiUrl,attendance)
+        
+    //     .then( Resp => {
+    //         let users = this.state.users
+    //         users.push( Resp.data )
+    //         this.setState({})
+    //     })
+    
+    // }
+    render(){
+        
     return (
+        <>
+        {/* <pre>debug title: { this.state.title } </pre>
+            <pre>debug description: { this.state.description} </pre>
+            <pre>image url: { this.state.imageUrl } </pre>
+            <pre>attend: { this.state.attend } </pre> */}
         <div class="d-flex" id="wrapper">
         
         <div class="bg-white" id="sidebar-wrapper">
@@ -25,7 +140,7 @@ export default class artikel extends Component {
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
                     <h2 class="fs-2 m-0">Dashboard</h2>
                 </div>
-
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -48,30 +163,42 @@ export default class artikel extends Component {
                     </ul>
                 </div>
             </nav>
-            <Form>
+            <Form 
+            >
             <Form.Group  className="mb-3 mb-sm-5 px-sm-5" >
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Gambar</Form.Label>
-                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2 artikel__file' type="file" aria-describedby="inputGroupFileAddon03" aria-label="Upload"></Form.Control>
+                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2 artikel__file' type="file"  aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="imageUrl" multiple
+                    onChange={(e) =>this.handleFile(e)}
+                    
+                    ></Form.Control>
                     </Row>
                 </Form.Group>
                 <Form.Group  className="mb-3 px-sm-5" controlId="exampleForm.ControlInput1">
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Judul</Form.Label>
-                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' type="text" placeholder="Masukkan judul artikel" />
+                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' type="text" placeholder="Masukkan judul artikel" name="title"
+                    onChange={(e) =>this.handleFile(e)}
+                        
+                    />
                     </Row>
                 </Form.Group>
                 <Form.Group className="mb-3 px-sm-5" controlId="exampleForm.ControlTextarea1">
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label artikel__adm__text'>Deskripsi</Form.Label>
-                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel' as="textarea" rows={6} />
+                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel'name="description" onChange={(e) =>this.handleFile(e)}
+                     as="textarea" rows={6} />
                     </Row>
                 </Form.Group>
+                <Button variant="info" type="submit" name="submit" onClick={(e)=>this.handleUpload(e)}>Submit</Button>
             </Form>
+            
                 
             
         </div>
     </div>
+    </>
     )
-  }
+    }
 }
+export default Artikel;
