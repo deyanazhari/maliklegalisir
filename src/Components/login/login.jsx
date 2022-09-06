@@ -10,41 +10,43 @@ import axios from 'axios';
 
 const Login =() => {
 
-    const[username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [navigate, setNavigate] = useState('false')
+    // const[username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [navigate, setNavigate] = useState('false')
     
-        const onChangeUsername = (e) => {
-            const value = e.target.value
-            setUsername(value)
-        }
-        const onChangePassword = (e) => {
-            const value = e.target.value 
-            setPassword(value)
-        }
-        const submitLogin = () => {
-            const data ={
-                username: username,
-                password: password
-            }
-            axios.post('https://api.legalisirjakarta.com/login', data)
-            .then(result => {
-                if(result){
-                    localStorage.setItem('id', result.data.id)
-                    setNavigate(true)
-                }
-                console.log(result.data.id)
-        })
-        }
+    //     const onChangeUsername = (e) => {
+    //         const value = e.target.value
+    //         setUsername(value)
+    //     }
+    //     const onChangePassword = (e) => {
+    //         const value = e.target.value 
+    //         setPassword(value)
+    //     }
+    //     const submitLogin = () => {
+    //         const data ={
+    //             username: username,
+    //             password: password
+    //         }
+    //         axios.post('https://api.legalisirjakarta.com/login', data)
+    //         .then(result => {
+    //             if(result){
+    //                 localStorage.setItem('id', result.data.id)
+    //                 setNavigate(true)
+    //             }
+    //             console.log(result.data.id)
+    //     })
+    //     }
 
     return(
         <>
-        <Fragment>
+        {/* <Fragment>
             {
                 navigate && (
                     <Navigate to="/Admin"/>
                 )
             }
+        </Fragment> */}
+
         <section className="ftco-section">
             <Container>
                     <Row className="justify-content-center">
@@ -59,15 +61,15 @@ const Login =() => {
                                         </div>
                                         <Form className="sigin-form">
                                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                
-                                                <Form.Control type="text" placeholder="Enter email" value={username} onChange={onChangeUsername} />
+                                                {/*  value={username} onChange={onChangeUsername}*/} 
+                                                <Form.Control type="text" placeholder="Enter email" /> 
                                             </Form.Group>
-
+                                            {/* value={password} onChange={onChangePassword}  */}
                                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                                <Form.Control type="password" placeholder="Password" value={password} onChange={onChangePassword} />
+                                                <Form.Control type="password" placeholder="Password" />
                                             </Form.Group>
-                                            
-                                            <Button variant="primary" type="submit" onClick={submitLogin}>
+                                            {/* onClick={submitLogin} */}
+                                            <Button variant="primary" type="submit" >
                                                 Submit
                                             </Button>
                                     </Form>
@@ -78,7 +80,6 @@ const Login =() => {
                     </Row>
             </Container>
         </section>
-        </Fragment>
         </>
     )
 }
