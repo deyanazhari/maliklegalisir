@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react'; 
 import './Artikel.css'
 import Navbar from '../navbar/Navigasi'
 import {Container, Button,Row, Col, Card, CardGroup} from 
 'react-bootstrap'
-import qs from 'querystring';
 import Footer from '../footer/Footer.jsx';
 import axios from 'axios';
-const api = 'https://api.legalisirjakarta.com'
+
+const api = "https://api.legalisirjakarta.com"
 export default class Artikel extends Component {
     constructor(props){
         super(props)
@@ -43,11 +43,13 @@ export default class Artikel extends Component {
         <Card  style={{ width: '18rem' }} className="m-2 m-sm-3 border-0 artikel-layanan ">
         <Card.Img variant="top" className="rounded-2 " src={artikel.imageUrl} />
         <Card.Body className=''>
-          <Card.Title maxlength="10" className='artikel__text '>{artikel.title}</Card.Title>
+          <Card.Title maxlength="10" className='artikel__text '>{artikel.title.substring(0, 10)}</Card.Title>
+          
           <Card.Text className="artikel-text text-justify">
-            {artikel.description}
+             {artikel.description.substring(0, 100)}...
             
           </Card.Text>
+          
           <Card.Link className="text-end" href="#">Selengkapnya </Card.Link>
         </Card.Body>
       </Card>

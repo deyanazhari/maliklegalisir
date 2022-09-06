@@ -1,10 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './styles.css';
-
-function Admin () {    
+import axios from 'axios'
+const api = "https://api.legalisirjakarta.com"
+export default class Admin extends Component {   
+    constructor(props){
+        super(props)
+        this.state = {
+         artikel:[],
+         response:'',
+         display:'none'
+         }
+        }
+        componentDidMount(){
+         axios.get(api+'/article').then(res=> {
+             console.log(res.data.data)
+             this.setState({
+                 artikel:res.data.data
+             })
+         })
+        } 
+        render(){
     return (
         <div class="d-flex" id="wrapper">
-        
         <div class="bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">Legalisir Jakarta</div>
             <div class="list-group list-group-flush my-3">
@@ -64,14 +81,16 @@ function Admin () {
                                 </tr>
                             </thead>
                             <tbody>
+                            {this.state.artikel.map(artikel => 
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
-                                    <td>12-01-02</td>
+                                    <td>{artikel.title}</td>
+                                    <td>{artikel.description.substring(0, 20)}</td>
+                                    <td>{artikel.createdAt.substring(0,10)}</td>
+                                    <td>{artikel.updatedAt.substring(0,10)}</td>
                                     <td><button className='btn btn-primary'>Edit</button></td>
                                 </tr>
+                                )}
                             </tbody>
                         </table>
                     </div>
@@ -80,6 +99,6 @@ function Admin () {
             </div>
         </div>
     </div>
-    )
+    );
+                            }
 }
-export default Admin;

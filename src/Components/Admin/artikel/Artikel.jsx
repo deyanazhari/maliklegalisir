@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Form, Col, Row} from 'react-bootstrap'
 import './Artikel.css'
 export default class artikel extends Component {
+    
   render() {
     return (
         <div class="d-flex" id="wrapper">

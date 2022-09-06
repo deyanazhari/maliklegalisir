@@ -1,16 +1,42 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigasi from './Components/navbar/Navigasi'
 import Footer from './Components/footer/Footer.jsx'
-import React from 'react';
+import React, {Component} from 'react';
 import {Container,Col,Button,Card, Row, CardGroup} from 'react-bootstrap';
+import axios from 'axios';
 
 //css
 import './home.css';
 //import image Assets
 import Homeicon from './Assets/homeicon.png'
 import Pelayanan from './Assets/pelayanan.png'
-function Home() {
-  return (
+const api = "https://api.legalisirjakarta.com"
+export default class Home extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+     artikel:[],
+     layanan:[],
+     response:'',
+     display:'none'
+     }
+    }
+    componentDidMount(){
+     axios.get(api+'/article').then(res=> {
+         console.log(res.data.data)
+         this.setState({
+             artikel:res.data.data
+         })
+     })
+     axios.get(api+'/services').then(res=> {
+      console.log(res.data.data)
+      this.setState({
+          layanan:res.data.data
+      })
+  })
+    }
+render(){
+  return(
     <>
     <Navigasi/>
     <Container fluid >
@@ -37,42 +63,19 @@ function Home() {
             <h1 className="temukan">Temukan Pelayanan <br/> Terbaik Kami</h1>
             <h6 className="pelayanan-cepat pt-sm-5">Pelayanan Cepat, Aman, dan sudah di percaya oleh pelanggan kami <br/> selama bertahun tahun</h6>
         </div>
-        
+{this.state.artikel.map(artikel => 
         <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel rounded-3">
             <Row>
                 <Col className="col-md-2 col-12">
-                    <Card.Img src={Pelayanan} className="img-fluid"/>
+                    <Card.Img src={artikel.imageUrl} className="img-fluid"/>
                 </Col>
                 <Col className="col-md-10 col-12">
-                    <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4">Akta Kematian</h1>
-                    <Card.Text className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta cumque ipsa, ut esse, obcaecati officia laboriosam iusto unde eum perspiciatis incidunt velit maxime numquam iure odio hic voluptatum nemo accusantium? </Card.Text>
+                    <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4">{artikel.title}</h1>
+                    <Card.Text className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> {artikel.description.substring(0, 300)}...</Card.Text>
                 </Col>
             </Row>
         </Card>
-        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel rounded-3">
-            <Row>
-                <Col className="col-md-2 col-12">
-                    <Card.Img src={Pelayanan} className="img-fluid"/>
-                </Col>
-                <Col className="col-md-10 col-12">
-                    <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4">Akta Kematian</h1>
-                    <Card.Text className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta cumque ipsa, ut esse, obcaecati officia laboriosam iusto unde eum perspiciatis incidunt velit maxime numquam iure odio hic voluptatum nemo accusantium? </Card.Text>
-                    
-                </Col>
-            </Row>
-        </Card>
-        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel rounded-3">
-            <Row>
-                <Col className="col-md-2 col-12">
-                    <Card.Img src={Pelayanan} className="img-fluid"/>
-                </Col>
-                <Col className="col-md-10 col-12">
-                    <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4">Akta Kematian</h1>
-                    <Card.Text className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta cumque ipsa, ut esse, obcaecati officia laboriosam iusto unde eum perspiciatis incidunt velit maxime numquam iure odio hic voluptatum nemo accusantium? </Card.Text>
-                    <Card.Link className="text-end" href="#">Selengkapnya </Card.Link>
-                </Col>
-            </Row>
-        </Card>
+        )}
         
         
         <div className="text-center">
@@ -83,70 +86,30 @@ function Home() {
             <h6 className="artikel-text3">Artikel terbaru untuk menambah wawasan anda seputar legalitas</h6>
         </div>
         <CardGroup className="my-4 ">
+        {this.state.layanan.map(layanan => 
         <Card className="m-2 border-0 artikel-layanan rounded-2">
         <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>{layanan.name}</Card.Title>
           <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
+          {layanan.description}
             
           </Card.Text>
-          <Card.Link className="text-end" href="#">Selengkapnya </Card.Link>
+        <div className='text-center'>
+          <Button variant="info" className="justify-content-center">Hubungi Kami</Button>
+          </div>
         </Card.Body>
       </Card>
-      <Card className="m-2 border-0 artikel-layanan rounded-2">
-        <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            additional content.
-          </Card.Text>
-          <Card.Link className="text-end" href="#">Selengkapnya </Card.Link>
-        </Card.Body>
-      </Card>
-      <Card className="m-2 border-0 artikel rounded-2" >
-        <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
-        <Card.Body className="border-0">
-          <Card.Title>Card title</Card.Title>
-          <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            additional content.
-          </Card.Text>
-          <Card.Link className="text-end" href="#">Selengkapnya </Card.Link>
-        </Card.Body>
-      </Card>
-      <Card className="m-2 border-0 artikel-layanan rounded-2">
-        <Card.Img variant="top" src={Pelayanan} className="rounded-2" />
-        <Card.Body >
-          <Card.Title>Card title</Card.Title>
-          <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            additional content.
-          </Card.Text>
-          <Card.Link className="text-end" href="#">Selengkapnya </Card.Link>
-        </Card.Body>
-      </Card>
-      <Card className="m-2 border-0 artikel-layanan rounded-2">
-        <Card.Img variant="top" src={Pelayanan} className="rounded-2" />
-        <Card.Body >
-          <Card.Title>Card title</Card.Title>
-          <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            additional content.
-          </Card.Text>
-          <Card.Link className="text-end" href="#">Selengkapnya </Card.Link>
-        </Card.Body>
-      </Card>
+      )}
       
     </CardGroup>
     <div className="text-center botton-lihat">
-    <Button className=" m-3" variant="info" size="sm">Lihat Lebih Banyak</Button>
+    <Button className=" m-3" variant="info" size="lg">Lihat Lebih Banyak</Button>
     </div>
 
       </Container>
       <Footer/>
     </>
-  );
+  )
 }
-export default Home;
+}

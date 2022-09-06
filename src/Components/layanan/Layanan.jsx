@@ -3,9 +3,26 @@ import Navbar from '../navbar/Navigasi'
 import './Layanan.css';
 import Pelayanan from '../../Assets/pelayanan.png'
 import Footer from '../footer/Footer.jsx'
+import axios from 'axios';
 import {Container, Button, Col, Card, CardGroup} from 'react-bootstrap'
-
+const api = "https://api.legalisirjakarta.com"
 export default class Layanan extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+     layanan:[],
+     response:'',
+     display:'none'
+     }
+    }
+    componentDidMount(){
+     axios.get(api+'/services').then(res=> {
+      console.log(res.data.data)
+      this.setState({
+          layanan:res.data.data
+      })
+  })
+    }
   render() {
     return (
         <>
@@ -24,14 +41,14 @@ export default class Layanan extends Component {
             <h6>Kami melayani legalisir dokumen perusahaan, legalisir ijazah, legalisir transkrip nilai, legalisir surat keterangan belum menikah/skbm, legalisir skck/police record, legalisir akte kelahiran, legalisir akte kematian, legalisir akte perkawinan, legalisir akte cerai, legalisir buku nikah, legalisir surat perjanjian, legalisir surat pengalaman kerja, legalisir surat kuasa, legalisir medical, legalisir kemenristek dikti dan lain sebagainya.</h6>
         </div>
         <CardGroup className="my-4 ">
+        {this.state.layanan.map(layanan => 
         <Col className="col-12 col-sm-3">
         <Card className="m-2 border-0 artikel-layanan rounded-2 ">
         <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>{layanan.name}</Card.Title>
           <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            
+            {layanan.description}
           </Card.Text>
           <div className="text-center">
           <Button variant="info" >Hubungi Kami</Button>
@@ -39,66 +56,7 @@ export default class Layanan extends Component {
         </Card.Body>
       </Card>
       </Col>
-      <Col className="col-12 col-sm-3">
-        <Card className="m-2 border-0 artikel-layanan rounded-2 ">
-        <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            
-          </Card.Text>
-          <div className="text-center">
-          <Button variant="info" >Hubungi Kami</Button>
-          </div>
-        </Card.Body>
-      </Card>
-      </Col>
-      <Col className="col-12 col-sm-3">
-        <Card className="m-2 border-0 artikel-layanan rounded-2 ">
-        <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            
-          </Card.Text>
-          <div className="text-center">
-          <Button variant="info" >Hubungi Kami</Button>
-          </div>
-        </Card.Body>
-      </Card>
-      </Col>
-      <Col className="col-12 col-sm-3">
-        <Card className="m-2 border-0 artikel-layanan rounded-2 ">
-        <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            
-          </Card.Text>
-          <div className="text-center">
-          <Button variant="info" >Hubungi Kami</Button>
-          </div>
-        </Card.Body>
-      </Card>
-      </Col>
-      <Col className="col-12 col-sm-3">
-        <Card className="m-2 border-0 artikel-layanan rounded-2 ">
-        <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text className="artikel-text text-justify">
-            This card has supporting text below as a natural lead-in to
-            
-          </Card.Text>
-          <div className="text-center">
-          <Button variant="info" >Hubungi Kami</Button>
-          </div>
-        </Card.Body>
-      </Card>
-      </Col>
+      )}
       
       </CardGroup>
       <Footer/>
