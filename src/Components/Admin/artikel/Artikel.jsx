@@ -4,53 +4,85 @@ import './Artikel.css'
 import axios from 'axios';
 class Artikel extends Component{
 
-        
-        state = {
-            title: null,
-            description: null,
-            imageUrl : null
-        }
-
-    handleFile(e){
-
-        let imageUrl = e.target.files
-        this.setState({image:imageUrl})
-        let title = e.target.text 
-        this.setState({title})
-        let description = e.target.text 
-        this.setState({description})
-        console.log(imageUrl)
-        console.log(title)
-        console.log(description)
-        let formdata = new FormData()
-        formdata.append('title', title)
-        formdata.append('description', description)
-        formdata.append('image',imageUrl)
-        
-    }
+    state = {
+        title: '',
+        description: '',
+        image: null
+      };
     
-    handleUpload(e){
-        console.log(this.state, "the state")
-        axios({
-            url : 'https://api.legalisirjakarta.com/article',
-            method: "POST",
-            data:{
-                title: "title",
-                description: "description",
-                imageUrl : null
-            },
-            headers:{
-                'Content-Type' : 'multipart/form-data'
-            },
-            data: FormData
+      handleChange = (e) => {
+        this.setState({
+          [e.target.id]: e.target.value
+        })
+      };
+    
+      handleImageChange = (e) => {
+        this.setState({
+          image: e.target.files[0]
+        })
+      };
+    
+      handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        let form_data = new FormData();
+        form_data.append('image', this.state.image, this.state.image.name);
+        form_data.append('title', this.state.title);
+        form_data.append('description', this.state.description);
+        let url = 'https://api.legalisirjakarta.com/article';
+        axios.post(url, form_data, {
+          headers: {
+            'content-type': 'multipart/form-data'
+          }
+        })
+            .then(res => {
+              console.log(res.data);
+            })
+            .catch(err => console.log(err))
+      };
+
+        
+    //     state = {
+    //         title: "",
+    //         description: "",
+    //         imageUrl : null
+    //     }
+
+    // async handleFile  =(e) = >{
+
+    //     // let imageUrl = e.target.files
+    //     // this.setState({image:imageUrl})
+    //     // let title = e.target.text 
+    //     // this.setState({title:title})
+    //     // let description = e.target.text 
+    //     // this.setState({description:description})
+        
+        
+    // }
+    
+    //  handleUpload = async (e) =>{
+        
+    //     let formdata = new FormData()
+    //     formdata.append('title', title)
+    //     formdata.append('description', description)
+    //     formdata.append('image',imageUrl)
+
+        
+    //     axios({
+    //         url : 'https://api.legalisirjakarta.com/article',
+    //         method: "POST",
+    //         headers:{
+    //             'Content-Type' : 'multipart/form-data'
+    //         },
+    //         data: formdata
             
-        })
-        .then(res => {
+    //     })
+    //     .then(res => {
 
-        },(err) => {
+    //     },(err) => {
 
-        })
-    }
+    //     })
+    // }
 
 
     // const [data, setDate] = useState([])
@@ -183,37 +215,33 @@ class Artikel extends Component{
                 </div>
             </nav>
             <Form 
-            method="post"
-            onSubmit={ (e) => this.saveDataToAPI(e) }
+            onSubmit={this.handleSubmit}
             >
             <Form.Group  className="mb-3 mb-sm-5 px-sm-5" >
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Gambar</Form.Label>
-                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2 artikel__file' type="file"  aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="imageUrl" multiple
-                    onChange={(e) =>{
-                        this.setState({ imageUrl: e.target.value})
-                    }}
-                    
+                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2 artikel__file' type="file"  aria-describedby="inputGroupFileAddon03" aria-label="Upload" id="image" name="image" 
+                     accept="image/png, image/jpeg"  onChange={this.handleImageChange} required
                     ></Form.Control>
                     </Row>
                 </Form.Group>
                 <Form.Group  className="mb-3 px-sm-5" controlId="exampleForm.ControlInput1">
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Judul</Form.Label>
-                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' type="text" placeholder="Masukkan judul artikel" name="title"
-                    onChange={(e) =>{
-                        this.setState({ title: e.target.value})
-                    }}
+                    {/* <Form.Control className='col-sm-10 col-12 artikel__adm__text2' type="text" placeholder="Masukkan judul artikel" id="title" name="title"
+                    value={this.state.title} onChange={this.handleChange} 
                         
-                    />
+                    /> */}
+                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel'name="title" id="title"
+                    value={this.state.title} onChange={this.handleChange} required
+                     as="textarea" rows={6} />
                     </Row>
                 </Form.Group>
                 <Form.Group className="mb-3 px-sm-5" controlId="exampleForm.ControlTextarea1">
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label artikel__adm__text'>Deskripsi</Form.Label>
-                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel'name="description" onChange={(e) =>{
-                                this.setState({ description: e.target.value})
-                            }}
+                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel'name="description" id="description"
+                    value={this.state.description} onChange={this.handleChange} required
                      as="textarea" rows={6} />
                     </Row>
                 </Form.Group>
