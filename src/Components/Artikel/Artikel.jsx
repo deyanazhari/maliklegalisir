@@ -38,9 +38,9 @@ export default class Artikel extends Component {
             </div>
             
             <CardGroup className="my-4 ">
-            {this.state.artikel.map(artikel => 
+            {this.state.artikel.map((artikel,id) => 
             <div className='col-sm-3 col-md-3 col-12'>
-        <Card  style={{ width: '18rem' }} className="m-2 m-sm-3 border-0 artikel-layanan ">
+        <Card key="id"  style={{ width: '18rem' }} className="m-2 m-sm-3 border-0 artikel-layanan ">
         <Card.Img variant="top" className="rounded-2 " src={artikel.imageUrl} />
         <Card.Body className=''>
           <Card.Title maxlength="10" className='artikel__text '>{artikel.title.substring(0, 10)}</Card.Title>
@@ -50,7 +50,7 @@ export default class Artikel extends Component {
             
           </Card.Text>
           
-          <Card.Link className="text-end" href="#">Selengkapnya </Card.Link>
+          <Card.Link className="text-end" href="/DetailArtikel/:id">Selengkapnya </Card.Link>
         </Card.Body>
       </Card>
       </div>

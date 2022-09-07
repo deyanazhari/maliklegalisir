@@ -14,12 +14,19 @@ class Artikel extends Component{
     handleFile(e){
 
         let imageUrl = e.target.files
-        this.setState({imageUrl:imageUrl})
+        this.setState({image:imageUrl})
         let title = e.target.text 
-        this.setState({title:title})
+        this.setState({title})
         let description = e.target.text 
-        this.setState({description:description})
-
+        this.setState({description})
+        console.log(imageUrl)
+        console.log(title)
+        console.log(description)
+        let formdata = new FormData()
+        formdata.append('title', title)
+        formdata.append('description', description)
+        formdata.append('image',imageUrl)
+        
     }
     
     handleUpload(e){
@@ -27,9 +34,15 @@ class Artikel extends Component{
         axios({
             url : 'https://api.legalisirjakarta.com/article',
             method: "POST",
+            data:{
+                title: "title",
+                description: "description",
+                imageUrl : null
+            },
             headers:{
                 'Content-Type' : 'multipart/form-data'
             },
+            data: FormData
             
         })
         .then(res => {
@@ -96,15 +109,21 @@ class Artikel extends Component{
     // }
     // saveDataToAPI(e){
     //     e.preventDefault()
-    //     const apiUrl = 'https://weddingbewok.herokuapp.com/attendance'
-    //     const attendance = {
-    //     name :this.state.nama,
-    //     person:this.state.person,
-    //     comments:this.state.comments,
-    //     attend: this.state.attend
+       
+    //     const artikel = {
+    //     title :this.state.title,
+    //     description:this.state.description,
+    //     imageUrl:this.state.imageUrl,
     //     }
-    //     axios.post(apiUrl,attendance)
-        
+    //     console.log(artikel)
+    //     axios({
+    //     method : 'POST',
+    //     url : 'https://api.legalisirjakarta.com/article',
+    //     data: artikel,
+    //     headers:{
+    //         'Content-Type' : 'multipart/form-data'
+    //     }
+    //     })
     //     .then( Resp => {
     //         let users = this.state.users
     //         users.push( Resp.data )
@@ -138,7 +157,7 @@ class Artikel extends Component{
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Dashboard</h2>
+                    <h2 class="fs-2 m-0">Artikel</h2>
                 </div>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -164,12 +183,16 @@ class Artikel extends Component{
                 </div>
             </nav>
             <Form 
+            method="post"
+            onSubmit={ (e) => this.saveDataToAPI(e) }
             >
             <Form.Group  className="mb-3 mb-sm-5 px-sm-5" >
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Gambar</Form.Label>
                     <Form.Control className='col-sm-10 col-12 artikel__adm__text2 artikel__file' type="file"  aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="imageUrl" multiple
-                    onChange={(e) =>this.handleFile(e)}
+                    onChange={(e) =>{
+                        this.setState({ imageUrl: e.target.value})
+                    }}
                     
                     ></Form.Control>
                     </Row>
@@ -178,7 +201,9 @@ class Artikel extends Component{
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Judul</Form.Label>
                     <Form.Control className='col-sm-10 col-12 artikel__adm__text2' type="text" placeholder="Masukkan judul artikel" name="title"
-                    onChange={(e) =>this.handleFile(e)}
+                    onChange={(e) =>{
+                        this.setState({ title: e.target.value})
+                    }}
                         
                     />
                     </Row>
@@ -186,7 +211,9 @@ class Artikel extends Component{
                 <Form.Group className="mb-3 px-sm-5" controlId="exampleForm.ControlTextarea1">
                     <Row>
                     <Form.Label className='col-sm-2 col-form-label artikel__adm__text'>Deskripsi</Form.Label>
-                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel'name="description" onChange={(e) =>this.handleFile(e)}
+                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel'name="description" onChange={(e) =>{
+                                this.setState({ description: e.target.value})
+                            }}
                      as="textarea" rows={6} />
                     </Row>
                 </Form.Group>

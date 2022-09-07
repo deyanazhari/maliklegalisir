@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './styles.css';
 import axios from 'axios'
+import {Button } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 const api = "https://api.legalisirjakarta.com"
 export default class Admin extends Component {   
     constructor(props){
@@ -88,7 +90,11 @@ export default class Admin extends Component {
                                     <td>{artikel.description.substring(0, 20)}</td>
                                     <td>{artikel.createdAt.substring(0,10)}</td>
                                     <td>{artikel.updatedAt.substring(0,10)}</td>
-                                    <td><button className='btn btn-primary'>Edit</button></td>
+                                    <td>
+                                        
+                                        <Button href="/Admin/EditArtikel" variant="info">Edit</Button>
+                                        
+                                        </td>
                                 </tr>
                                 )}
                             </tbody>

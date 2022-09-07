@@ -51,7 +51,7 @@ export default class Layanan extends Component {
             {layanan.description}
           </Card.Text>
           <div className="text-center">
-          <Button variant="info" >Hubungi Kami</Button>
+          <Button variant="info" href="https://wa.me/6285929925995" >Hubungi Kami</Button>
           </div>
         </Card.Body>
       </Card>
