@@ -9,8 +9,8 @@ import Footer from '../footer/Footer.jsx'
 import bg from '../../Assets/bgDetailArtikel.jpg';
 const api = "https://api.legalisirjakarta.com"
 export default class detailArtikel extends Component {
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
         this.state = {
          artikel:[],
          layanan:[],
@@ -18,8 +18,7 @@ export default class detailArtikel extends Component {
          display:'none'
          }
         }
-        componentDidMount(){
-          
+        componentDidMount(){   
          axios.get(api+'/article?page=1&per_pages=1').then(res=> {
              this.setState({
                  artikel:res.data.data
@@ -30,8 +29,8 @@ export default class detailArtikel extends Component {
             layanan : res.data.data
           })
          })
+         
         }
-        
   render() {
     return (
         <>
