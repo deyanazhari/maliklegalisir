@@ -22,13 +22,13 @@ export default class Home extends Component {
      }
     }
     componentDidMount(){
-     axios.get(api+'/article').then(res=> {
+     axios.get(api+'/article?page=1&per_pages=4').then(res=> {
          console.log(res.data.data)
          this.setState({
              artikel:res.data.data
          })
      })
-     axios.get(api+'/services').then(res=> {
+     axios.get(api+'/services?page=1&per_pages=5').then(res=> {
       console.log(res.data.data)
       this.setState({
           layanan:res.data.data
@@ -55,7 +55,9 @@ render(){
                 </div>
             </Col>
             <Col className="col-sm-5 col-12 ">
+              <div className='text-sm-end text-center ms-sm-3'>
               <img className="home-icon " src={Homeicon}/>
+              </div>
             </Col>
         </Row>
         </Container>
@@ -66,8 +68,10 @@ render(){
 {this.state.artikel.map(artikel => 
         <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel rounded-3">
             <Row>
-                <Col className="col-md-2 col-12">
-                    <Card.Img src={artikel.imageUrl} className="img-fluid"/>
+                <Col className="col-md-2 col-12  ">
+                  <div className='home__artikel__img'>
+                    <img src={artikel.imageUrl} className="img-fluid " />
+                    </div>
                 </Col>
                 <Col className="col-md-10 col-12">
                     <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4">{artikel.title}</h1>

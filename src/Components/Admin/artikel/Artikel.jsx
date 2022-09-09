@@ -50,13 +50,13 @@ class Artikel extends Component{
         <div class="d-flex" id="wrapper">
         
         <div class="bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">Legalisir Jakarta</div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom artikel__artikel">Legalisir Jakarta</div>
             <div class="list-group list-group-flush my-3">
-                <a href="/Admin" class="list-group-item list-group-item-action bg-transparent second-text "><i
-                        class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-                <a href="/Admin/Artikel" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i
+                <a href="/Admin" class="list-group-item list-group-item-action bg-transparent second-text artikel__artikel"><i
+                        class="fas fa-tachometer-alt me-2 "></i>Dashboard</a>
+                <a href="/Admin/Artikel" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active artikel__artikel"><i
                         class="fas fa-project-diagram me-2"></i>Artikel</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold artikel__artikel"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
         </div>
@@ -64,8 +64,8 @@ class Artikel extends Component{
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Artikel</h2>
+                    <i class="fas fa-align-left primary-text fs-4 me-3"  id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0 artikel__artikel">Artikel</h2>
                 </div>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -108,9 +108,9 @@ class Artikel extends Component{
                     value={this.state.title} onChange={this.handleChange} 
                         
                     /> */}
-                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel'name="title" id="title"
+                    <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Judul'name="title" id="title"
                     value={this.state.title} onChange={this.handleChange} required
-                     as="textarea" rows={6} />
+                     as="textarea" rows={1} />
                     </Row>
                 </Form.Group>
                 <Form.Group className="mb-3 px-sm-5" controlId="exampleForm.ControlTextarea1">
@@ -121,7 +121,14 @@ class Artikel extends Component{
                      as="textarea" rows={6} />
                     </Row>
                 </Form.Group>
-                <Button variant="info" type="submit" name="submit" onClick={(e)=>this.handleUpload(e)}>Submit</Button>
+                <div>
+                    <Row>
+                    <div className='col-sm-2'></div>
+                <div className='col-sm-10 col-12 px-sm-5'>
+                <Button variant="info" type="submit" name="submit" size="lg" onClick={(e)=>this.handleUpload(e)}>Submit</Button>
+                </div>
+                </Row>
+                </div>
             </Form>
             
                 

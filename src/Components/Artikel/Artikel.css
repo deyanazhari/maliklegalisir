@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Faustina:wght@500;600&family=Great+Vibes&family=Montserrat:ital,wght@0,400;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,300;1,300&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap');
 .home-layanan {
+
     width: 100%;
      min-height: 70vh;
      background-size: cover; 
@@ -7,19 +8,59 @@
     background-position: center;
      background-repeat: no-repeat;
      }
+     .artikel__body{
+        margin-bottom: 200px;
+     }
      .artikel-layanan{
         box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
         border-radius: 20px;
     }
     .artikel-text{
+        padding-top: 5px;
         font-family: 'Poppins', sans-serif;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 14px; 
-        color: black;
+        color: #777777;
     }
     .artikel__text{
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
-        font-size: 20px; 
+        font-size: 25px; 
         color: black;
+    }
+    .artikel-title{
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 25px; 
+            color: #4a4a4a;
+        
+    }
+    .artikel{
+        box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
+        border-radius: 20px;
+        height: 200px;
+        
+        
+    }
+    .home__artikel__img img{
+        width: 300px;
+        height: 200px;
+        
+    }
+    @media screen and (max-width:600px) {
+        .home__artikel__img img{
+           
+            height: 150px;
+            
+        }
+        .artikel{
+            box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
+            border-radius: 20px;
+            height: 500px;
+            
+            
+        }
+        .artikel__body{
+            margin-bottom: 100px;
+         }
     }

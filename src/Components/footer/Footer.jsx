@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react';
-import React, { Component } from 'react'
-import {Container, Row, Button} from 'react-bootstrap'
+
+import React from 'react'
+import {Container, Row} from 'react-bootstrap'
 import Instagram from '../../Assets/instagram.png'
 import Whatsapp from '../../Assets/whatsapp.png'
 import Tiktok from '../../Assets/tik_tok.png'
@@ -12,7 +12,7 @@ function Footer(){
 	
 		return(
 			<>
-
+		<div className="footer__pad"></div>
 			<Container fluid className='con__footer'>
 				<Row className='justify-content-center text-center'>
 			<h1 className='con__text'>Legalisir Jakarta</h1>

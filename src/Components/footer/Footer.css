@@ -3,6 +3,9 @@
     background-color: #161616;
     padding-top: 100px;
 }
+.footer__pad{
+    margin-top: 300px;
+}
 .con__text{
     color: white;   
     font-family: 'Poppins', sans-serif;
@@ -19,4 +22,13 @@
 }
 .foot__bot{
     padding-bottom: 100px;
+}
+
+@media screen and (max-width:600px) {
+    .con__text{
+    color: white;   
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 30px; 
+    }
 }

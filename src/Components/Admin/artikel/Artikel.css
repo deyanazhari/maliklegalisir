@@ -11,6 +11,11 @@
     font-size: 18px;
     
 }
+.artikel__artikel{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
 
 /* .artikel__file{
     display: none;

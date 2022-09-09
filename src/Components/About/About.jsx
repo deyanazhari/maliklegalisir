@@ -21,7 +21,7 @@ export default class about extends Component {
                 <h1 className="tentang__text position-absolute top-50 start-50 translate-middle">Tentang Kami</h1>
       </Container>
       <Container fluid>
-        <div className="justify-content-center text-center p-5">
+        <div className="justify-content-center text-center p-5 mt-sm-2">
           <h1>Mengapa Memilih Kami?</h1>
           <h6>Layanan Cepat & Dokumen Aman dan terjamin kerahasiaannya</h6>
         </div>

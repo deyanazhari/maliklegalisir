@@ -3,10 +3,18 @@
 .artikel{
     box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
     border-radius: 20px;
+    height: 150px;
+    
+    
 }
 .artikel-layanan{
     box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
     border-radius: 20px;
+}
+.home__artikel__img img{
+    width: 300px;
+    height: 200px;
+    
 }
 
 .jasa{

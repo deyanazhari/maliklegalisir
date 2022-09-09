@@ -59,8 +59,9 @@ export default class Layanan extends Component {
       )}
       
       </CardGroup>
-      <Footer/>
+
       </Container>
+      <Footer/>
       </>
     )
   }
