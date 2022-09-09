@@ -2,9 +2,10 @@ import React, { Component} from 'react';
 import {useParams } from 'react-router-dom';
 import './Artikel.css'
 import Navbar from '../navbar/Navigasi'
+import { Link } from 'react-router-dom';
 import {Container, Row, Col, Card} from 
 'react-bootstrap'
-import { Navigate } from 'react-router-dom';
+import { History } from 'react-router-dom';
 import Footer from '../footer/Footer.jsx';
 import axios from 'axios';
 
@@ -19,19 +20,19 @@ export default class Artikel extends Component {
          }
         }
         componentDidMount(){
-         axios.get(api+'/article?page=1&per_pages=5').then(res=> {
-             console.log(res.data.data)
+         axios.get(api+'/article').then(res=> {
+             
              this.setState({
                  artikel:res.data.data
              })
          })
         }
 
-        // handleDetail = (id, props) => {
-        //     this.props.history.push(`/DetailArtikel/${id}`)
-        // }
+        handleDetail = (id) => {
+            this.props.history.push(`/DetailArtikel/${id}`)
+        }
         
-    render(){
+    render(props){
         return(
             <> 
             <Navbar/>
@@ -46,7 +47,7 @@ export default class Artikel extends Component {
             
             
             {this.state.artikel.map(artikel => 
-        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel rounded-3 " key={artikel.id}>
+        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel rounded-3 " key={artikel.id} godetail={this.handleDetail}>
             <Row>
                 <Col className="col-md-2 col-12  ">
                   <div className='home__artikel__img text-center justify-content-center'>
@@ -57,8 +58,9 @@ export default class Artikel extends Component {
                     <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4 pt-3">{artikel.title}</h1>
                     <h6 className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> {artikel.description.substring(0, 270)}...</h6>
                     <div className='pt-sm-5 pt-5 ps-3 ps-sm-0' >
-                    <Card.Link href={'/DetailArtikel/${id}'} className=''>Selengkapnya</Card.Link>
+                    <Link to={`/DetailArtikel/${artikel.id}`}  className='' >Selengkapnya</Link>
                     </div>
+                    {/* href={`/DetailArtikel/${artikel.id}`}  */}
                 </Col>
             </Row>
         </Card>

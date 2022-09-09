@@ -1,33 +1,38 @@
 import React, { Component } from 'react'
 import Navbar from '../navbar/Navigasi.jsx'
 import {Container,CardGroup, Card , Button} from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import axios from 'axios'
+
+import Axios from 'axios'
 import './detailartikel.css'
 import Pelayanan from '../../Assets/pelayanan.png'
 import Footer from '../footer/Footer.jsx'
 import bg from '../../Assets/bgDetailArtikel.jpg';
 const api = "https://api.legalisirjakarta.com"
 export default class detailArtikel extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
-         artikel:[],
+         artikel:[
+         ],
          layanan:[],
          response:'',
          display:'none'
          }
         }
         componentDidMount(){   
-         axios.get(api+'/article?page=1&per_pages=1').then(res=> {
+          let articleID = this.props.match.params.id;
+         Axios.get(`https://api.legalisirjakarta.com/article?page=1&per_pages=1`)
+         .then (res=> {
+          console.log('result', res)
              this.setState({
                  artikel:res.data.data
              })
          })
-         axios.get(api+'/services').then(res=>{
+         Axios.get(api+'/services').then(res=>{
           this.setState({
             layanan : res.data.data
           })
+          
          })
          
         }
@@ -38,7 +43,7 @@ export default class detailArtikel extends Component {
       <Container fluid>
       {this.state.artikel.map((artikel) => 
         <div key={artikel.id}>
-        <div className='text-center justify-content-center p-5 '>
+        <div className='text-center justify-content-center p-5 ' id={artikel.id}>
             <img src={bg} className="img-fluid " />
         </div>
         <div className='detail__desc'>

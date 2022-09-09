@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigasi from './Components/navbar/Navigasi'
 import Footer from './Components/footer/Footer.jsx'
+import { useParams } from 'react-router-dom';
 import React, {Component} from 'react';
 import {Container,Col,Button,Card, Row, CardGroup} from 'react-bootstrap';
 import axios from 'axios';
@@ -43,7 +44,7 @@ render(){
       <Container fluid>
         <Row className="mt-sm-5 mt-3 ms-sm-5">
             <Col className="col-sm-7 col-12 pt-sm-5 mt-3">
-                <h4 className="jasa">Jasa Legalisir Indonesia</h4>
+                <h4 className="jasa"></h4>
                 <h6 className="pelayanan py-3 text-sm-justify ">Pelayanan Lengkap, cepat, dan terpercaya. Dengan <br/> pengalaman kami yang sudah bertahun tahun</h6>
                 <div className="">
                 <Button variant="info" className=""  size="sm"  href="https://wa.me/6285362479992" >
