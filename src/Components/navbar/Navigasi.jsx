@@ -18,7 +18,7 @@ function Navigasi(){
               alt="React Bootstrap logo"
             />
             </div>
-        <Navbar.Brand href="#home" className="navbar-malik mx-sm-4">Jakarta Legalisir</Navbar.Brand>
+        <Navbar.Brand href="#home" className="navbar-malik mx-sm-4">Legalisir Jakarta</Navbar.Brand>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav ">

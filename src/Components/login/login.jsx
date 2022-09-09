@@ -1,6 +1,7 @@
 import React, {useState, Fragment} from 'react'
 import {Container,Row,Col,Button, Form, Card} from 'react-bootstrap';
 import {Navigate} from 'react-router-dom';
+import Logo from '../../Assets/logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css';
 import axios from 'axios';
@@ -52,7 +53,9 @@ const Login =() => {
                     <Row className="justify-content-center">
                         <Col className="col-md-7 col-7 col-lg-5 col-12">
                             < div className="wrap">
-                                <div className="img"></div>
+                                <div className='text-center justify-content-center pt-3'>
+                                <img src={Logo} className="img-fluid" style={{width:120,  height:120}} />
+                                </div>
                                 <div className="login-wrap p-sm-4 p-2">
                                         <div className="d-flex">
                                             <div className="w-100">

@@ -63,7 +63,7 @@ body {
 [tabindex="-1"]:focus {
   outline: 0 !important; }
   .login-background{
-    background-image: url(../images/bg-1.jpg);
+    background-image: url(../../../Assets/logo.png);
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8186,10 +8186,12 @@ h1, h2, h3, h4, h5,
   color: #000; }
 
 .img {
-  background-size: cover;
+
   background-repeat: no-repeat;
-  background-position: center center; 
-  background-image : url(../images/bg-1.jpg)
+  justify-content: center;
+  background-image : url(../../../Assets/logo.png);
+  height: 30vh;
+  width: 30vh;
 
 }
 
@@ -8201,8 +8203,6 @@ h1, h2, h3, h4, h5,
   -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24); }
-  .wrap .img {
-    height: 200px; }
 
 .login-wrap {
   position: relative; }
