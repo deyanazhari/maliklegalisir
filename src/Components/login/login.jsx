@@ -1,6 +1,5 @@
-import React, {Component} from 'react'
-import {Container,Row,Col,Button, Form, Card} from 'react-bootstrap';
-import {useHistory} from 'react-router-dom';
+import React,{useState, Fragment} from 'react'
+import {Container,Row,Col,Button, Form} from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import Logo from '../../Assets/logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,49 +7,83 @@ import './css/style.css';
 import axios from 'axios';
 
 
-const API = "https://api.legalisirjakarta.com/login"
-class Login extends React.Component {
+// const API = "https://api.legalisirjakarta.com/login"
+const Login = () => {
     
-    state = {
-        username: '',
-        password: '',
-        message : ''
-      };
+    // state = {
+    //     username: '',
+    //     password: '',
+    //     message : ''
+    //   };
    
     
-    handleChange = (e) => {
-        this.setState({
-          [e.target.id]: e.target.value
-        })
-      };
+    // handleChange = (e) => {
+    //     this.setState({
+    //       [e.target.id]: e.target.value
+    //     })
+    //   };
 
 
-     handleSubmitClick = (e) => {
+    //  handleSubmitClick = (e) => {
+        
+    //     e.preventDefault();
+    //     console.log('test', this.state)
+    //     const payload={
+    //         "username":this.state.username,
+    //         "password":this.state.password,
+    //     }
+    //     console.log('check',payload)
+    //     axios.post(API , payload,{
+    //         headers: {
+    //             'content-type' :'application/json'
+    //         }
+    //     })
+    //     .then( function (res)  {
+    //         console.log('aku respon', res.data.code)
+    //         if (res.data.code===200){ return <Redirect to="/layanan"/>
+    //         }
+    //     }).catch(err=>console.log(err))
+    // };
+    const[username, setUsername] = useState();
+    const[password, setPassword] = useState();
+    const[redirect, setRedirect] = useState(false)
+    const onChangeUsername= (e) => {
+        const value = e.target.value 
+        setUsername (value)
+    }
+    const onChangePassword= (e) => {
+        const value = e.target.value 
+        setPassword (value)
+    }
+    const submitLogin = (e)=>{
         e.preventDefault();
-        console.log('test', this.state)
-        const payload={
-            "username":this.state.username,
-            "password":this.state.password,
+        const data ={
+            username :username,
+            password : password
         }
-        console.log('check',payload)
-        axios.post(API , payload,{
-            headers: {
-                'content-type' :'application/json'
+        axios.post('https://api.legalisirjakarta.com/login',data)
+        .then(result =>{
+            if(result.data.code === 200){
+                alert ("Selamat Login Admin"); 
+                setRedirect(true)
+            } else if (result.data.code === 401){
+                alert('password salah')
+                setRedirect(false)
             }
         })
-        .then( function (res)  {
-            console.log('aku respon', res.data.code)
-            if (res.data.code===200){
-                console.log('berhasil')
-               
-            }
-        }).catch(err=>console.log(err))
-    };
+    }
     
     
-render() {
+
     return(
-        <>
+        <Fragment>
+            {
+                redirect && (
+
+                    <Redirect to="/admin" />
+                )
+            }
+        
 
         <section className="ftco-section">
             <Container>
@@ -66,17 +99,20 @@ render() {
                                                 <h3 className="mb-2 mb-sm-4 text-center admin__text">LOGIN ADMIN</h3>
                                             </div>
                                         </div>
-                                        <Form className="sigin-form" onSubmit={this.handleSubmitClick}>
+                                        <Form className="sigin-form" >
+                                        {/* onSubmit={this.handleSubmitClick} */}
                                             <Form.Group className="mb-3"   >
                                                  
-                                                <Form.Control type="text" placeholder="Enter username"value={this.state.username} onChange={this.handleChange} name="username" id="username" required /> 
+                                                <Form.Control type="text" placeholder="Enter username"   value={username} onChange={onChangeUsername}  />
+                                                {/* value={this.state.username} onChange={this.handleChange}  */}
                                             </Form.Group>
                                             
                                             <Form.Group className="mb-3"   >
-                                                <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}  name="password" id="password" required/>
+                                                <Form.Control type="password" placeholder="Password"   value={password} onChange={onChangePassword}/>
+                                                {/* value={this.state.password} onChange={this.handleChange}  */}
                                             </Form.Group>
                                             
-                                            <Button variant="primary" type="submit"  >
+                                            <Button variant="primary" type="submit"  onClick={submitLogin}  >
                                                 Submit
                                             </Button>
                                     </Form>
@@ -87,8 +123,8 @@ render() {
                     </Row>
             </Container>
         </section>
-        </>
+        </Fragment>
     )
 }
-}
+
 export default Login;

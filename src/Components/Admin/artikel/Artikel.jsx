@@ -97,7 +97,7 @@ class Artikel extends Component{
                     <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Gambar</Form.Label>
                     <Form.Control className='col-sm-10 col-12 artikel__adm__text2 artikel__file' type="file"  aria-describedby="inputGroupFileAddon03" aria-label="Upload" id="image" name="image" 
                      accept="image/png, image/jpeg"  onChange={this.handleImageChange} required
-                    ></Form.Control>
+                    />
                     </Row>
                 </Form.Group>
                 <Form.Group  className="mb-3 px-sm-5" controlId="exampleForm.ControlInput1">

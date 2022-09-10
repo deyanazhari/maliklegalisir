@@ -7,7 +7,7 @@ import TentangKami from './Components/About/About.jsx';
 import DetailArtikel from './Components/detailArtikel/detailArtikel.jsx'
 import Admin from './Components/Admin/Admin.jsx';
 import Artikeladmin from './Components/Admin/artikel/Artikel.jsx';
-import EditArtikel from './Components/Admin/editArtikel/editArtikel';
+import EditArtikel from './Components/Admin/editArtikel/editArtikel.jsx';
 import Test from './Components/Coba.jsx'
 import {
   BrowserRouter as Router,
@@ -27,7 +27,7 @@ class App extends Component {
         <Route path ="/DetailArtikel/:id" component ={DetailArtikel}/>
         <Route exact path ="/Admin" component ={Admin}/>
         <Route path ="/Admin/Artikel" component ={Artikeladmin}/>
-        <Route path ="EditArtikel/:id" component ={EditArtikel}/>
+        <Route path ="/EditArtikel/:id" component ={EditArtikel}/>
         
       
     </Router>

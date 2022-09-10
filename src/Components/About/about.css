@@ -33,6 +33,11 @@
     width: 400px;
     object-fit: contain;
 }
+.about__text{
+    width: 600px;
+    line-height: 35px;
+    color: #171717;
+}
 
 @media screen and (max-width:600px){
     .tentang__text{
