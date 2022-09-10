@@ -59,7 +59,7 @@ const Login =() => {
                                 <div className="login-wrap p-sm-4 p-2">
                                         <div className="d-flex">
                                             <div className="w-100">
-                                                <h3 className="mb-2 mb-sm-4">Login Admin</h3>
+                                                <h3 className="mb-2 mb-sm-4 text-center admin__text">LOGIN ADMIN</h3>
                                             </div>
                                         </div>
                                         <Form className="sigin-form">

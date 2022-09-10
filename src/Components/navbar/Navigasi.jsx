@@ -16,9 +16,10 @@ function Navigasi(){
               height="45"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
+              href="/"
             />
             </div>
-        <Navbar.Brand href="#home" className="navbar-malik mx-sm-4">Legalisir Jakarta</Navbar.Brand>
+        <Navbar.Brand href="/" className="navbar-malik mx-sm-4" >Legalisir Jakarta</Navbar.Brand>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav ">

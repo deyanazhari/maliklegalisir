@@ -20,7 +20,7 @@ export default class Artikel extends Component {
          }
         }
         componentDidMount(){
-         axios.get(api+'/article').then(res=> {
+         axios.get(api + '/article').then(res=> {
              
              this.setState({
                  artikel:res.data.data
@@ -47,18 +47,18 @@ export default class Artikel extends Component {
             
             
             {this.state.artikel.map(artikel => 
-        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel rounded-3 " key={artikel.id} godetail={this.handleDetail}>
+        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel__artikel rounded-3 " key={artikel.id} godetail={this.handleDetail}>
             <Row>
                 <Col className="col-md-2 col-12  ">
-                  <div className='home__artikel__img text-center justify-content-center'>
+                  <div className='artikel__img text-center justify-content-center'>
                     <img src={artikel.imageUrl} className="img-fluid " />
                     </div>
                 </Col>
                 <Col className="col-md-10 col-12" >
                     <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4 pt-3">{artikel.title}</h1>
                     <h6 className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> {artikel.description.substring(0, 270)}...</h6>
-                    <div className='pt-sm-5 pt-5 ps-3 ps-sm-0' >
-                    <Link to={`/DetailArtikel/${artikel.id}`}  className='' >Selengkapnya</Link>
+                    <div className='pt-sm-5  ms-1 ps-sm-0' >
+                    <Link to={`/DetailArtikel/${artikel.id}`}  className='artikel__selengkapnya' >Selengkapnya</Link>
                     </div>
                     {/* href={`/DetailArtikel/${artikel.id}`}  */}
                 </Col>

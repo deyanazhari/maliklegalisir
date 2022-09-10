@@ -21,11 +21,18 @@ export default class detailArtikel extends Component {
         }
         componentDidMount(){   
           let articleID = this.props.match.params.id;
-         Axios.get(`https://api.legalisirjakarta.com/article?page=1&per_pages=1`)
+         Axios.get(`https://api.legalisirjakarta.com/article/${articleID}`)
          .then (res=> {
-          console.log('result', res)
+          let artikel= res.data.data
+          console.log('result', artikel)
              this.setState({
-                 artikel:res.data.data
+              artikel : {
+                id : artikel.id,
+                title : artikel.title,
+                createdAt : artikel.createdAt,
+                description : artikel.description
+              }
+                 
              })
          })
          Axios.get(api+'/services').then(res=>{
@@ -41,20 +48,20 @@ export default class detailArtikel extends Component {
         <>
       <Navbar/>
       <Container fluid>
-      {this.state.artikel.map((artikel) => 
-        <div key={artikel.id}>
-        <div className='text-center justify-content-center p-5 ' id={artikel.id}>
+      
+        <div >
+        <div className='text-center justify-content-center p-5 ' id={this.state.artikel.id}>
             <img src={bg} className="img-fluid " />
         </div>
         <div className='detail__desc'>
-            <h1>{artikel.title}</h1>
-            <h3 className='pt-2'>{artikel.createdAt.substring(0, 10)}</h3>
+            <h1>{this.state.artikel.title}</h1>
+            <h3 className='pt-2'>{this.state.artikel.createdAt}</h3>
+            {/* {artikel.createdAt.substring(0, 10)} */}
             <h4 className='pb-2'>admin</h4>
             
-            <h6 >{artikel.description}</h6>
+            <h6 >{this.state.artikel.description}</h6>
         </div>
         </div>
-        )}
         <div className='line'>
         <div className='detail__line'>
         </div>
