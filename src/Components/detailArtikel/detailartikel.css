@@ -46,11 +46,21 @@
     left:0;
     bottom:-2px;
 }
+.detail__artikel__bg__img{
+    height: 600px;
+    width: 100%;
+    object-fit: contain ;
+}
 
 @media screen and (max-width : 600px) {
     .detail__desc{
         padding-right: 10px;
         padding-left: 10px;
+    }
+    .detail__artikel__bg__img{
+        height: 200px;
+        width: 100%;
+        object-fit: contain ;
     }
     .detail__desc h1 {
     font-family: 'Poppins', sans-serif;

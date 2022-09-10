@@ -25,9 +25,9 @@ class App extends Component {
         <Route path ="/Coba" component ={Test}/>
         <Route path ="/TentangKami" component ={TentangKami}/>
         <Route path ="/DetailArtikel/:id" component ={DetailArtikel}/>
-        <Route path ="/Admin" component ={Admin}/>
+        <Route exact path ="/Admin" component ={Admin}/>
         <Route path ="/Admin/Artikel" component ={Artikeladmin}/>
-        <Route path ="/Admin/EditArtikel" component ={EditArtikel}/>
+        <Route path ="EditArtikel/:id" component ={EditArtikel}/>
         
       
     </Router>

@@ -14,7 +14,7 @@ export default class Admin extends Component {
          }
         }
         componentDidMount(){
-         axios.get(api+'/article').then(res=> {
+         axios.get(api+'/article?page=1&per_pages=999').then(res=> {
              console.log(res.data.data)
              this.setState({
                  artikel:res.data.data
@@ -92,7 +92,7 @@ export default class Admin extends Component {
                                     <td>{artikel.updatedAt.substring(0,10)}</td>
                                     <td>
                                         
-                                        <Button href="/Admin/EditArtikel" variant="info">Edit</Button>
+                                        <Button href={`/EditArtikel/${artikel.id}`} variant="info">Edit</Button>
                                         
                                         </td>
                                 </tr>

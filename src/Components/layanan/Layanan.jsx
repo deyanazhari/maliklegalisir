@@ -16,7 +16,7 @@ export default class Layanan extends Component {
      }
     }
     componentDidMount(){
-     axios.get(api+'/services').then(res=> {
+     axios.get(api+'/services?page=1&per_pages=999').then(res=> {
       console.log(res.data.data)
       this.setState({
           layanan:res.data.data
@@ -38,20 +38,22 @@ export default class Layanan extends Component {
         
         </div>
         <div className="col-12 col-sm-8 offset-sm-2 justify-content-center text-sm-center text-justify mb-5">
-            <h6>Kami melayani legalisir dokumen perusahaan, legalisir ijazah, legalisir transkrip nilai, legalisir surat keterangan belum menikah/skbm, legalisir skck/police record, legalisir akte kelahiran, legalisir akte kematian, legalisir akte perkawinan, legalisir akte cerai, legalisir buku nikah, legalisir surat perjanjian, legalisir surat pengalaman kerja, legalisir surat kuasa, legalisir medical, legalisir kemenristek dikti dan lain sebagainya.</h6>
+            <h6 className='line__height__layanan'>Kami siap membantu anda dalam hal legalisir dokumen seperti akte kelahiran, akte kematian, akte perkawinan/ akte nikah, akte cerai, buku nikah KUA, paspor, KTP, SKBM/ Surat Keterangan Belum Menikah, ijazah SMA / Universitas, rapor, SKCK, medical check up, dokumen perusahaan dan masih banyak lagi yang lainnya.Kami sudah berpengalaman selama bertahun-tahun dalam bidang ini</h6>
         </div>
-        <CardGroup className="my-4 ">
+        <CardGroup className="my-5 ">
         {this.state.layanan.map(layanan => 
-        <Col className="col-12 col-sm-3">
-        <Card className="m-2 border-0 artikel-layanan rounded-2 ">
-        <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
+        <Col className="col-12 col-sm-3 py-3">
+        <Card className="m-2 border-0 artikel-layanan rounded-2  ">
+          <div className='text-center justify-content-center'>
+        <Card.Img variant="top" className="rounded-2 layanan__image pt-2"  src={layanan.imageUrl} />
+        </div>
         <Card.Body>
           <Card.Title>{layanan.name}</Card.Title>
           <Card.Text className="artikel-text text-justify">
             {layanan.description}
           </Card.Text>
           <div className="text-center">
-          <Button variant="info" href="https://wa.me/6285929925995" >Hubungi Kami</Button>
+          <Button variant="info" href="https://wa.me/087793962470" >Hubungi Kami</Button>
           </div>
         </Card.Body>
       </Card>

@@ -7,6 +7,7 @@ import {RiTeamFill} from 'react-icons/ri';
 import {MdCall} from 'react-icons/md';
 import {BsFillEmojiSmileFill} from 'react-icons/bs'
 import Footer from '../footer/Footer.jsx'
+import logo from '../../Assets/logo-about.png'
 import './about.css'
 
 export default class about extends Component {
@@ -56,6 +57,25 @@ export default class about extends Component {
           <i className='icon__bg'><BsFillEmojiSmileFill className='about__icon'/></i>
           <h4 className='p-4'>100% SATISFACTION</h4>
           <h6>Kepuasan Client Utama Kami</h6>
+          </Col>
+        </Row>
+        <Row>
+          <Col className='col-12 col-sm-6'>
+            <div className='text-center text-sm-end justify-content-center justify-sm-content-end'>
+            <img src={logo} alt="" className='img__layanan'/>
+            </div>
+          </Col>
+          <Col>
+          <div className='text-start justify-content-start position-relative'>
+            <div>
+          <h6 className=''>
+          Jakarta Legalisir merupakan sebuah usaha penyedia jasa legalisir dokumen. Kami siap membantu anda dalam hal legalisir dokumen seperti akte kelahiran, akte kematian, akte perkawinan/ akte nikah, akte cerai, buku nikah KUA, paspor, KTP, SKBM/ Surat Keterangan Belum Menikah, ijazah SMA / Universitas, rapor, SKCK, medical check up, dokumen perusahaan dan masih banyak lagi yang lainnya <br/>
+
+          Kami sudah berpengalaman selama bertahun-tahun dalam bidang ini, dan sudah dipercaya banyak masyarakat Jakarta khususnya DKI Jakarta dan sekitarnya.
+        
+          </h6>
+          </div>
+          </div>
           </Col>
         </Row>
       </Container>

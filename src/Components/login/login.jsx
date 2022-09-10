@@ -1,52 +1,56 @@
-import React, {useState, Fragment} from 'react'
+import React, {Component} from 'react'
 import {Container,Row,Col,Button, Form, Card} from 'react-bootstrap';
-import {Navigate} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Logo from '../../Assets/logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css';
 import axios from 'axios';
 
+
+const API = "https://api.legalisirjakarta.com/login"
+class Login extends React.Component {
     
-
-
-const Login =() => {
-
-    // const[username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [navigate, setNavigate] = useState('false')
+    state = {
+        username: '',
+        password: '',
+        message : ''
+      };
+   
     
-    //     const onChangeUsername = (e) => {
-    //         const value = e.target.value
-    //         setUsername(value)
-    //     }
-    //     const onChangePassword = (e) => {
-    //         const value = e.target.value 
-    //         setPassword(value)
-    //     }
-    //     const submitLogin = () => {
-    //         const data ={
-    //             username: username,
-    //             password: password
-    //         }
-    //         axios.post('https://api.legalisirjakarta.com/login', data)
-    //         .then(result => {
-    //             if(result){
-    //                 localStorage.setItem('id', result.data.id)
-    //                 setNavigate(true)
-    //             }
-    //             console.log(result.data.id)
-    //     })
-    //     }
+    handleChange = (e) => {
+        this.setState({
+          [e.target.id]: e.target.value
+        })
+      };
 
+
+     handleSubmitClick = (e) => {
+        e.preventDefault();
+        console.log('test', this.state)
+        const payload={
+            "username":this.state.username,
+            "password":this.state.password,
+        }
+        console.log('check',payload)
+        axios.post(API , payload,{
+            headers: {
+                'content-type' :'application/json'
+            }
+        })
+        .then( function (res)  {
+            console.log('aku respon', res.data.code)
+            if (res.data.code===200){
+                console.log('berhasil')
+               
+            }
+        }).catch(err=>console.log(err))
+    };
+    
+    
+render() {
     return(
         <>
-        {/* <Fragment>
-            {
-                navigate && (
-                    <Navigate to="/Admin"/>
-                )
-            }
-        </Fragment> */}
 
         <section className="ftco-section">
             <Container>
@@ -62,17 +66,17 @@ const Login =() => {
                                                 <h3 className="mb-2 mb-sm-4 text-center admin__text">LOGIN ADMIN</h3>
                                             </div>
                                         </div>
-                                        <Form className="sigin-form">
-                                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                {/*  value={username} onChange={onChangeUsername}*/} 
-                                                <Form.Control type="text" placeholder="Enter email" /> 
+                                        <Form className="sigin-form" onSubmit={this.handleSubmitClick}>
+                                            <Form.Group className="mb-3"   >
+                                                 
+                                                <Form.Control type="text" placeholder="Enter username"value={this.state.username} onChange={this.handleChange} name="username" id="username" required /> 
                                             </Form.Group>
-                                            {/* value={password} onChange={onChangePassword}  */}
-                                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                                <Form.Control type="password" placeholder="Password" />
+                                            
+                                            <Form.Group className="mb-3"   >
+                                                <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}  name="password" id="password" required/>
                                             </Form.Group>
-                                            {/* onClick={submitLogin} */}
-                                            <Button variant="primary" type="submit" >
+                                            
+                                            <Button variant="primary" type="submit"  >
                                                 Submit
                                             </Button>
                                     </Form>
@@ -85,5 +89,6 @@ const Login =() => {
         </section>
         </>
     )
+}
 }
 export default Login;

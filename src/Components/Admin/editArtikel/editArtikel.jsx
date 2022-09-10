@@ -3,11 +3,70 @@ import {Form, Button, Row} from 'react-bootstrap'
 
 import axios from 'axios'; 
 class DetailArtikel extends Component{
-
+    constructor(props){
+        super(props)
+        this.state = {
+         artikel:[
+         ],
+         
+         response:'',
+         display:'none'
+         }
+        }
+    
+    //   handleChange = (e) => {
+    //     this.setState({
+    //       [e.target.id]: e.target.value
+    //     })
+    //   };
+    
+    //   handleImageChange = (e) => {
+    //     this.setState({
+    //       image: e.target.files[0]
+    //     })
+    //   };
+      componentDidMount(){   
+        let articleEditId = this.props.match.params.editId;
+       axios.get(`https://api.legalisirjakarta.com/article/${articleEditId}`)
+       .then (res=> {
+        let artikel= res.data.data
+        console.log('result', artikel)
+           this.setState({
+            artikel : {
+              id : artikel.id,
+              title : artikel.title,
+              imageUrl : artikel.imageUrl,
+              createdAt : artikel.createdAt,
+              description : artikel.description
+            }
+               
+           })
+       })
+    }
+    
+    //   handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log(this.state);
+    //     let articleEditId = this.props.match.params.id
+    //     let form_data = new FormData();
+    //     form_data.append('image', this.state.image, this.state.image.name);
+    //     form_data.append('title', this.state.title);
+    //     form_data.append('description', this.state.description);
+    //     let url = `https://api.legalisirjakarta.com/article/${articleEditId}`;
+    //     axios.put(url, form_data, {
+    //       headers: {
+    //         'content-type': 'multipart/form-data'
+    //       }
+    //     })
+    //         .then(res => {
+    //           console.log(res.data);
+    //         })
+    //         .catch(err => console.log(err))
+    //   };
     render(){
         return(
             <>
-            <div class="d-flex" id="wrapper">
+            <div class="d-flex"  >
             
             <div class="bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">Legalisir Jakarta</div>
@@ -52,19 +111,19 @@ class DetailArtikel extends Component{
                 </nav>
                 <Form 
                 >
-                <Form.Group  className="mb-3 mb-sm-5 px-sm-5" >
+                <Form.Group  className="mb-3 mb-sm-5 px-sm-5" id={this.state.artikel.id} >
                         <Row>
-                        <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Gambar</Form.Label>
+                        <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'></Form.Label>
                         <Form.Control className='col-sm-10 col-12 artikel__adm__text2 artikel__file' type="file"  aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="imageUrl" multiple
                        
                         
-                        ></Form.Control>
+                        > </Form.Control>
                         </Row>
                     </Form.Group>
                     <Form.Group  className="mb-3 px-sm-5" controlId="exampleForm.ControlInput1">
                         <Row>
-                        <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'>Judul</Form.Label>
-                        <Form.Control className='col-sm-10 col-12 artikel__adm__text2' type="text" placeholder="Masukkan judul artikel" name="title"
+                        <Form.Label className='col-sm-2 col-form-label col-12 artikel__adm__text'> {this.state.artikel.title}</Form.Label>
+                        <Form.Control className='col-sm-10 col-12 artikel__adm__text2' type="text" placeholder=""  name="title"
                         
                             
                         />
@@ -72,9 +131,9 @@ class DetailArtikel extends Component{
                     </Form.Group>
                     <Form.Group className="mb-3 px-sm-5" controlId="exampleForm.ControlTextarea1">
                         <Row>
-                        <Form.Label className='col-sm-2 col-form-label artikel__adm__text'>Deskripsi</Form.Label>
-                        <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder='Masukkan Deskripsi artikel'name="description" 
-                         as="textarea" rows={6} />
+                        <Form.Label className='col-sm-2 col-form-label artikel__adm__text'></Form.Label>
+                        <Form.Control className='col-sm-10 col-12 artikel__adm__text2' placeholder=""name="description" 
+                         as="textarea" rows={6} > </Form.Control>
                         </Row>
                     </Form.Group>
                     <Button variant="info" type="submit" name="submit" >Submit</Button>

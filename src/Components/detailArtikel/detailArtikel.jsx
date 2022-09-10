@@ -29,6 +29,7 @@ export default class detailArtikel extends Component {
               artikel : {
                 id : artikel.id,
                 title : artikel.title,
+                imageUrl : artikel.imageUrl,
                 createdAt : artikel.createdAt,
                 description : artikel.description
               }
@@ -51,7 +52,7 @@ export default class detailArtikel extends Component {
       
         <div >
         <div className='text-center justify-content-center p-5 ' id={this.state.artikel.id}>
-            <img src={bg} className="img-fluid " />
+            <img src={this.state.artikel.imageUrl} className="img-fluid detail__artikel__bg__img" />
         </div>
         <div className='detail__desc'>
             <h1>{this.state.artikel.title}</h1>
@@ -69,7 +70,7 @@ export default class detailArtikel extends Component {
         <CardGroup className="my-4 ">
         {this.state.layanan.map((layanan)=>
         <Card key={layanan.id} className="m-2 border-0 artikel-layanan rounded-2">
-        <Card.Img variant="top" className="rounded-2" src={Pelayanan} />
+        <Card.Img variant="top" className="rounded-2" src={layanan.imageUrl} />
         <Card.Body>
           <Card.Title>{layanan.name}</Card.Title>
           <Card.Text className="artikel-text text-justify">

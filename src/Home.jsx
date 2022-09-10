@@ -46,7 +46,7 @@ render(){
         <Row className="mt-sm-5 mt-3 ms-sm-5">
             <Col className="col-sm-7 col-12 pt-sm-5 mt-3">
                 <h4 className="jasa">Legalisir Jakarta</h4>
-                <h6 className="pelayanan py-3 text-sm-justify ">Pelayanan Lengkap, cepat, dan terpercaya. Dengan <br/> pengalaman kami yang sudah bertahun tahun</h6>
+                <h6 className="pelayanan py-3 text-sm-justify text-justify ">Jakarta Legalisir merupakan sebuah usaha penyedia jasa legalisir dokumen. Kami siap membantu anda dalam hal legalisir dokumen seperti akte kelahiran, akte kematian, akte perkawinan/ akte nikah, akte cerai, buku nikah KUA, paspor, KTP, SKBM/ Surat Keterangan Belum Menikah, ijazah SMA / Universitas, rapor, SKCK, medical check up, dokumen perusahaan dan masih banyak lagi yang lainnya.Kami sudah berpengalaman selama bertahun-tahun dalam bidang ini, dan sudah dipercaya banyak masyarakat Jakarta khususnya DKI Jakarta dan sekitarnya.</h6>
                 <div className="">
                 <Button variant="info" className=""  size="sm"  href="https://wa.me/6285362479992" >
                 Hubungi Kami
@@ -71,13 +71,13 @@ render(){
         <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel__home rounded-3">
             <Row>
                 <Col className="col-md-2 col-12  ">
-                  <div className='home__artikel__img'>
-                    <img src={Pelayanan} className="img-fluid " />
+                  <div className='ps-sm-3 home__artikel__img'>
+                    <img src={layanan.imageUrl} className="img-fluid " />
                     </div>
                 </Col>
                 <Col className="col-md-10 col-12">
                     <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4">{layanan.name}</h1>
-                    <Card.Text className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> {layanan.description.substring(0, 300)}...</Card.Text>
+                    <Card.Text className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> {layanan.description}</Card.Text>
                   <div className='mt-2 mt-sm-5'>
                     <Link to="/layanan" className='artikel__selengkapnya mt-sm-5'>Selengkapnya</Link>
                     {/* {`/DetailArtikel/${artikel.id}`} */}

@@ -42,3 +42,13 @@
         left:0;
         bottom:-15px;
     }
+    .layanan__image{
+        height: 300px;
+        width: 300;
+        object-fit: contain;
+    }
+    .line__height__layanan{
+        line-height: 25px;
+        color: #212427;
+        font-size: 16px;
+    }

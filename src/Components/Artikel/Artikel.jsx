@@ -20,7 +20,7 @@ export default class Artikel extends Component {
          }
         }
         componentDidMount(){
-         axios.get(api + '/article').then(res=> {
+         axios.get(api + '/article?page=1&per_pages=999').then(res=> {
              
              this.setState({
                  artikel:res.data.data

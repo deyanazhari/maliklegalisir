@@ -12,6 +12,7 @@
 .home__artikel__img img{
     width: 400px;
     height: 200px;
+    object-fit: contain;
     
 }
 
@@ -25,6 +26,8 @@
     font-weight: 300;
     font-size: 14px;  
     text-align: start;
+    line-height: 20px;
+    width: 600px;
 }
 .temukan{
     font-family: 'Poppins', sans-serif;
@@ -71,6 +74,8 @@
 
 .home__artikel__image{
     height: 170px;
+    width: 170px;
+    object-fit: contain;
 }
 
 @media screen and (max-width:600px){
