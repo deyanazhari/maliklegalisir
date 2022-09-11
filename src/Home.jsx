@@ -67,7 +67,7 @@ render(){
             <h6 className="pelayanan-cepat pt-sm-5 py-4 py-sm-0">Pelayanan Cepat, Aman, dan sudah di percaya oleh pelanggan kami <br/> selama bertahun tahun</h6>
         </div>
 {this.state.layanan.map(layanan => 
-        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel__home rounded-3">
+        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel__home rounded-3 " id="layanan">
             <Row>
                 <Col className="col-md-2 col-12  ">
                   <div className='ps-sm-3 pt-2 pt-sm-0 home__artikel__img'>
@@ -92,7 +92,7 @@ render(){
             <h1 className="artikel-text2">Artikel</h1>
             <h6 className="artikel-text3">Artikel terbaru untuk menambah wawasan anda seputar legalitas</h6>
         </div>
-        <CardGroup className="my-4 " id="layanan">
+        <CardGroup className="my-4 ">
         {this.state.artikel.map(artikel=> 
         <Card className="m-2 border-0 artikel-layanan rounded-2">
         <Card.Img variant="top" className="rounded-2 home__artikel__image pt-2" src={artikel.imageUrl} />

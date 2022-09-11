@@ -30,6 +30,12 @@ class DetailArtikel extends Component{
                  
              })
          })
+         var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
         }
         state = {
             title: '',
@@ -81,7 +87,7 @@ class DetailArtikel extends Component{
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="/Admin/Artikel" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i
                         class="fas fa-project-diagram me-2"></i>Artikel</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <a href="/" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
         </div>
