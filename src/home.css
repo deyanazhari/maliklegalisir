@@ -27,7 +27,7 @@
     font-size: 14px;  
     text-align: start;
     line-height: 20px;
-    width: 600px;
+    
 }
 .temukan{
     font-family: 'Poppins', sans-serif;
@@ -82,11 +82,14 @@
     
 }
 @media screen and (max-width:600px){
-
+    .text__temukan{
+        padding-top: 150px;
+    }
     .artikel__home{
         box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
         border-radius: 20px;
-        height: 630px;
+        height: 470px;
+        object-fit: contain;
     }
     .home__artikel__img img{
            width: 100%;
@@ -95,8 +98,8 @@
     }
     .home-icon{
         margin-top: 10px;
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         margin-left: auto;
         margin-right: auto;
         

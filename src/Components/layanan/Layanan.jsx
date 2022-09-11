@@ -28,14 +28,14 @@ export default class Layanan extends Component {
         <>
         <Navbar/>
       <Container fluid className="home-layanan">
-        <div className=""></div>
-        <h1 className="layanan-text position-absolute top-50 start-50 translate-middle">Layanan</h1>
-        
+        <div className="text-center padding__layanan">
+        <h1 className="layanan-text ">Layanan</h1>
+        <div className='line__layanan'></div>
+        </div>
       </Container>
       <Container fluid>
         <div className="justify-content-center text-center my-5">
-        <h1 className="layanan-kami text-center ">Layanan Kami</h1>
-        
+        <h1 className="text-center ">Layanan Kami</h1>
         </div>
         <div className="col-12 col-sm-8 offset-sm-2 justify-content-center text-sm-center text-justify mb-5">
             <h6 className='line__height__layanan'>Kami siap membantu anda dalam hal legalisir dokumen seperti akte kelahiran, akte kematian, akte perkawinan/ akte nikah, akte cerai, buku nikah KUA, paspor, KTP, SKBM/ Surat Keterangan Belum Menikah, ijazah SMA / Universitas, rapor, SKCK, medical check up, dokumen perusahaan dan masih banyak lagi yang lainnya.Kami sudah berpengalaman selama bertahun-tahun dalam bidang ini</h6>
@@ -52,7 +52,7 @@ export default class Layanan extends Component {
           <Card.Text className="artikel-text text-justify">
             {layanan.description}
           </Card.Text>
-          <div className="text-center">
+          <div className="text-center pt-3 pt-sm-0">
           <Button variant="info" href="https://wa.me/087793962470" >Hubungi Kami</Button>
           </div>
         </Card.Body>

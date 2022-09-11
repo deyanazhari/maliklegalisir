@@ -18,8 +18,10 @@ export default class about extends Component {
         <>
       <Navbar/>
       <Container fluid className="about__bg">
-                <div className=""></div>
-                <h1 className="tentang__text position-absolute top-50 start-50 translate-middle">Tentang Kami</h1>
+                <div className='text-center about__kami '>
+                <h1 className="tentang__text ">Tentang Kami</h1>
+                <div className='line__about'></div>
+                </div>
       </Container>
       <Container fluid>
         <div className="justify-content-center text-center p-5 mt-sm-2">
@@ -65,9 +67,9 @@ export default class about extends Component {
             <img src={logo} alt="" className='img__layanan'/>
             </div>
           </Col>
-          <Col className='col-12 col-sm-7'>
+          <Col className='col-12 col-sm-5'>
             <div className='pt-sm-5'>
-          <h6 className='text-justify about__text pt-sm-3'>
+          <h6 className='text-justify about__text w-sm-75 w-auto pt-sm-3'>
           <b>Jakarta Legalisir </b> merupakan sebuah usaha penyedia jasa legalisir dokumen. Kami siap membantu anda dalam hal legalisir dokumen seperti akte kelahiran, akte kematian, akte perkawinan/ akte nikah, akte cerai, buku nikah KUA, paspor, KTP, SKBM/ Surat Keterangan Belum Menikah, ijazah SMA / Universitas, rapor, SKCK, medical check up, dokumen perusahaan dan masih banyak lagi yang lainnya <br/>
           Kami sudah berpengalaman selama bertahun-tahun dalam bidang ini, dan sudah dipercaya banyak masyarakat Jakarta khususnya DKI Jakarta dan sekitarnya.
         

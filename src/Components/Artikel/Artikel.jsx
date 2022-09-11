@@ -37,8 +37,10 @@ export default class Artikel extends Component {
             <> 
             <Navbar/>
             <Container fluid className="home-layanan">
-                <div className=""></div>
-                <h1 className="layanan-text position-absolute top-50 start-50 translate-middle">Artikel</h1>
+                <div className="text-center padding__artikel">
+                <h1 className="layanan-text ">Artikel</h1>
+                <div className='line__artikel'></div>
+                </div>
             </Container>
             <Container fluid className="p-5 pb-5 artikel__body ">
             <div className="justify-content-center text-center p-5">
@@ -55,9 +57,9 @@ export default class Artikel extends Component {
                     </div>
                 </Col>
                 <Col className="col-md-10 col-12" >
-                    <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4 pt-3">{artikel.title}</h1>
+                    <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-sm-justify pt-sm-4 pt-3">{artikel.title}</h1>
                     <h6 className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> {artikel.description.substring(0, 270)}...</h6>
-                    <div className='pt-sm-5  ms-1 ps-sm-0' >
+                    <div className='pt-sm-5  ms-3 ps-sm-0' >
                     <Link to={`/DetailArtikel/${artikel.id}`}  className='artikel__selengkapnya' >Selengkapnya</Link>
                     </div>
                     {/* href={`/DetailArtikel/${artikel.id}`}  */}

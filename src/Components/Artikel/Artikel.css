@@ -24,19 +24,20 @@
         font-weight: 500;
         font-size: 25px; 
         color: black;
+        
     }
     .artikel-title{
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 25px; 
             color: #4a4a4a;
+            
         
     }
     .artikel__artikel{
         box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
         border-radius: 20px;
         height: 200px;
-        
         
     }
     .artikel__img img{
@@ -45,6 +46,17 @@
         object-fit: contain;
         
     }
+    .padding__artikel{
+        padding-top: 250;
+    }
+    .line__artikel{
+        background-color: #68bcec;
+            height: 2px;
+            width: 5vw;
+            justify-content: center;
+            text-align: center;
+            margin: auto;
+    }
     .artikel__selengkapnya{
         font-size: 15px;
         color:#0d6efd;
@@ -52,6 +64,20 @@
         font-family: 'Poppins', sans-serif;
     }
     @media screen and (max-width:600px) {
+        .line__artikel{
+            background-color: #68bcec;
+                height: 2px;
+                width: 21vw;
+                justify-content: center;
+                text-align: center;
+                margin: auto;
+        }
+        .artikel__artikel{
+            box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
+            border-radius: 20px;
+            height: 630px;
+            
+        }
         .artikel__img img{
            
             height: 250px;
@@ -67,4 +93,19 @@
         .artikel__body{
             margin-bottom: 100px;
          }
+         .artikel-text{
+            padding-top: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 14px; 
+            color: #777777;
+            line-height: 20px;
+        }
+        .artikel-title{
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 20px; 
+            color: #4a4a4a;
+        
+    }
     }

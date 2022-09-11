@@ -19,14 +19,13 @@
     color: #ffff;
     text-decoration: none;
 }
-.tentang__text:after{
-    content:"";
-    position:absolute;
+.line__about{
     background-color: #68bcec;
-    height: 2px;
-    width: 100%;
-    left:0;
-    bottom:-15px;
+            height: 2px;
+            width: 17vw;
+            justify-content: center;
+            text-align: center;
+            margin: auto;
 }
 .img__layanan{
     height: 400px;
@@ -34,29 +33,30 @@
     object-fit: contain;
 }
 .about__text{
-    width: 600px;
-    line-height: 35px;
+    line-height: 40px;
     color: #171717;
+}
+.about__kami{
+    padding-top: 250px;
 }
 
 @media screen and (max-width:600px){
     .tentang__text{
-        position:relative;
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
         font-size: 25px;
         color: #ffff;
         text-decoration: none;
     }
-    .tentang__text:after{
-        content:"";
-        position:absolute;
+    .line__about{
         background-color: #68bcec;
-        height: 2px;
-        width: 100%;
-        left:0;
-        bottom:-15px;
+                height: 2px;
+                width: 45vw;
+                justify-content: center;
+                text-align: center;
+                margin: auto;
     }
+
     .about__icon{
         color: #68bcec;
         height: 10vh;

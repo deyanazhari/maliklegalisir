@@ -7,41 +7,24 @@
      background-repeat: no-repeat;
      }
      .layanan-text{
-        position:relative;
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
-        font-size: 35px;
+        font-size: 25px;
         color: #ffff;
         text-decoration: none;
     }
-     .layanan-text:after{
-        content:"";
-        position:absolute;
-        background-color: #68bcec;
-        height: 2px;
-        width: 100%;
-        left:0;
-        bottom:-15px;
+    .padding__layanan{
+        padding-top: 250px;
     }
-    .layanan-kami{
-        
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        font-size: 35px;
-        color: black;
-        
-    }
-    .layanan-kami:after{
-        content:"";
-        text-align: center;
-        
-        background-color: #68bcec;
-        justify-content: center;
-        height: 3px;
-        width: 20%;
-        left:0;
-        bottom:-15px;
-    }
+    .line__layanan{
+    
+    background-color: #68bcec;
+    height: 2px;
+    width: 7vw;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
     .layanan__image{
         height: 300px;
         width: 300;
@@ -51,4 +34,16 @@
         line-height: 25px;
         color: #212427;
         font-size: 16px;
+    }
+
+    @media screen and (max-width : 600px) {
+        .line__layanan{
+    
+            background-color: #68bcec;
+            height: 2px;
+            width: 30vw;
+            justify-content: center;
+            text-align: center;
+            margin: auto;
+        }
     }
