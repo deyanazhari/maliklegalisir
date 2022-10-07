@@ -18,6 +18,7 @@
         font-weight: 500;
         font-size: 14px; 
         color: #777777;
+        
     }
     .artikel__text{
         font-family: 'Poppins', sans-serif;
@@ -49,6 +50,11 @@
     .padding__artikel{
         padding-top: 250;
     }
+    .artikel__berita{
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 45px;
+    }
     .line__artikel{
         background-color: #68bcec;
             height: 2px;
@@ -64,6 +70,11 @@
         font-family: 'Poppins', sans-serif;
     }
     @media screen and (max-width:600px) {
+        .artikel__berita{
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-size: 27px;
+        }
         .line__artikel{
             background-color: #68bcec;
                 height: 2px;
