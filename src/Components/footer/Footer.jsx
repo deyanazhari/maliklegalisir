@@ -15,7 +15,7 @@ function Footer(){
 		<div className="footer__pad"></div>
 			<Container fluid className='con__footer'>
 				<Row className='justify-content-center text-center'>
-			<h1 className='con__text'>Legalisir Jakarta</h1>
+			<h1 className='con__text'>Berita Jakarta</h1>
 			<h6 className='foot__text p-5'>Jl.Swadaya Pam No.32, RT.6/RW.7. Jatinegara Kec. Cakung Kota Jakarta Timur<br/> Daerah Khusus Ibukota Jakarta <br/>13930</h6>
 			<div className='foot__bot'>
 			<img className="foot__img" src={Instagram}/>

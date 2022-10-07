@@ -16,6 +16,20 @@
     
 }
 
+
+.carousel__text{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    text-shadow: 2px 2px 5px #292929bb;
+}
+.carousel__description{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    text-shadow: 2px 2px 5px #292929bb;
+}
+
 .jasa{
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -56,7 +70,7 @@
     margin-top: 250px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 45px; 
+    font-size: 20px; 
 }
 .artikel-text3{
     font-family: 'Poppins', sans-serif;
@@ -88,7 +102,7 @@
     .artikel__home{
         box-shadow: rgba(43, 42, 42, 0.1) 0px 4px 12px;
         border-radius: 20px;
-        height: 470px;
+        height: 570px;
         object-fit: contain;
     }
     .home__artikel__img img{

@@ -9,41 +9,6 @@ import axios from 'axios';
 
 // const API = "https://api.legalisirjakarta.com/login"
 const Login = () => {
-    
-    // state = {
-    //     username: '',
-    //     password: '',
-    //     message : ''
-    //   };
-   
-    
-    // handleChange = (e) => {
-    //     this.setState({
-    //       [e.target.id]: e.target.value
-    //     })
-    //   };
-
-
-    //  handleSubmitClick = (e) => {
-        
-    //     e.preventDefault();
-    //     console.log('test', this.state)
-    //     const payload={
-    //         "username":this.state.username,
-    //         "password":this.state.password,
-    //     }
-    //     console.log('check',payload)
-    //     axios.post(API , payload,{
-    //         headers: {
-    //             'content-type' :'application/json'
-    //         }
-    //     })
-    //     .then( function (res)  {
-    //         console.log('aku respon', res.data.code)
-    //         if (res.data.code===200){ return <Redirect to="/layanan"/>
-    //         }
-    //     }).catch(err=>console.log(err))
-    // };
     const[username, setUsername] = useState();
     const[password, setPassword] = useState();
     const[redirect, setRedirect] = useState(false)
@@ -91,7 +56,7 @@ const Login = () => {
                         <Col className="col-md-7 col-7 col-lg-5 col-12">
                             < div className="wrap">
                                 <div className='text-center justify-content-center pt-3'>
-                                <img src={Logo} className="img-fluid" style={{width:120,  height:120}} />
+                                {/* <img src={Logo} className="img-fluid" style={{width:120,  height:120}} /> */}
                                 </div>
                                 <div className="login-wrap p-sm-4 p-2">
                                         <div className="d-flex">

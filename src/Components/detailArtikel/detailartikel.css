@@ -5,31 +5,36 @@
 .detail__desc h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 25px; 
+    font-size: 35px; 
     color: black;
     }
     .detail__desc h3 {
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
         font-size: 14px; 
-        color: black;
+        color: rgb(48, 48, 48);
         }
         .detail__desc h4 {
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             font-size: 14px; 
-            color: black;
+            color: rgb(48, 48, 48);
             }
             .detail__desc h6 {
                 font-family: 'Poppins', sans-serif;
-                font-weight: 500;
-                font-size: 14px; 
+                font-weight: 600;
+                font-size: 16px; 
                 line-height: 30px;
                 }
+
 
 .detail__bg{
     max-width: 1233px;
     max-height: 576px;
+}
+.detailArtikel__description{
+    white-space: pre-wrap;
+    color: #282828;
 }
 .line{
     padding: 100;
@@ -38,7 +43,7 @@
     content:"";
     justify-content: center;
     text-align: center;
-    background-color: #777777;
+    background-color: #68bcec;
     height: 3px;
     width: 100%;
     left:0;

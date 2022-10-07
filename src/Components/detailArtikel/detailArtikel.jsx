@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import Navbar from '../navbar/Navigasi.jsx'
 import {Container,CardGroup, Card , Button} from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 import Axios from 'axios'
 import './detailartikel.css'
-import Pelayanan from '../../Assets/pelayanan.png'
 import Footer from '../footer/Footer.jsx'
-import bg from '../../Assets/bgDetailArtikel.jpg';
 const api = "https://api.legalisirjakarta.com"
 export default class detailArtikel extends Component {
     constructor(props){
@@ -14,7 +12,8 @@ export default class detailArtikel extends Component {
         this.state = {
          artikel:[
          ],
-         layanan:[],
+
+         blog:[],
          response:'',
          display:'none'
          }
@@ -36,12 +35,12 @@ export default class detailArtikel extends Component {
                  
              })
          })
-         Axios.get(api+'/services').then(res=>{
+         Axios.get(api+'/article?page=1&per_pages=5').then(res=> {
+         
           this.setState({
-            layanan : res.data.data
+              blog:res.data.data
           })
-          
-         })
+      })
          
         }
   render() {
@@ -55,12 +54,14 @@ export default class detailArtikel extends Component {
             <img src={this.state.artikel.imageUrl} className="img-fluid detail__artikel__bg__img" />
         </div>
         <div className='detail__desc'>
-            <h1>{this.state.artikel.title}</h1>
+          <div className='text-center '>
+            <h1 className='detailArtikel__title'>{this.state.artikel.title}</h1>
+            </div>
             <h3 className='pt-2'>{this.state.artikel.createdAt}</h3>
             {/* {artikel.createdAt.substring(0, 10)} */}
-            <h4 className='pb-2'>admin</h4>
+            <h4 className='pb-2'>Admin</h4>
             
-            <h6 >{this.state.artikel.description}</h6>
+            <h6 className='detailArtikel__description'>{this.state.artikel.description}</h6>
         </div>
         </div>
         <div className='line'>
@@ -68,17 +69,18 @@ export default class detailArtikel extends Component {
         </div>
         </div>
         <CardGroup className="my-4 ">
-        {this.state.layanan.map((layanan)=>
-        <Card key={layanan.id} className="m-2 border-0 artikel-layanan rounded-2">
-        <Card.Img variant="top" className="rounded-2" src={layanan.imageUrl} />
+        {this.state.blog.map((blog)=>
+        <Card key={blog.id} className="m-2 border-0 artikel-layanan rounded-2">
+        <Card.Img variant="top" className="rounded-2" src={blog.imageUrl} />
         <Card.Body>
-          <Card.Title>{layanan.name}</Card.Title>
+          <Card.Title>{blog.title}</Card.Title>
           <Card.Text className="artikel-text text-justify">
-          {layanan.description}
+          {blog.description.substring(0,90)}
             
           </Card.Text>
         <div className='text-center'>
-          <Button variant="info" className="justify-content-center">Hubungi Kami</Button>
+        <Link to={`/DetailArtikel/${blog.id}`}>
+          <Button variant="info" className="justify-content-center">Selengkapnya</Button></Link>
           </div>
         </Card.Body>
       </Card>

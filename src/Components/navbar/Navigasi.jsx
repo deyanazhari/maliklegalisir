@@ -10,26 +10,24 @@ function Navigasi(){
       <Navbar  expand="lg" className="navbar px-3">
       <Container fluid  className="navbar-color">
         <div className='ps-2'>
-      <img
+      {/* <img
               src={LogoUtama}
               width="45"
               height="45"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
               href="/"
-            />
+            /> */}
             </div>
-        <Navbar.Brand href="/" className="navbar-malik mx-sm-4" >Legalisir Jakarta</Navbar.Brand>
+        <Navbar.Brand href="/" className="navbar-malik mx-sm-4" > <em className='berita'>Berita</em> Jakarta</Navbar.Brand>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav ">
           <Nav>
             <Nav.Link className="navbar-font m-2" href="/">Beranda</Nav.Link>
             
-            <Nav.Link className="navbar-font m-2" href="/Layanan">Layanan</Nav.Link>
             
-            <Nav.Link className="navbar-font m-2" href="/Artikel">Artikel</Nav.Link>
-            <Nav.Link className="navbar-font m-2" href="/TentangKami">Tentang Kami</Nav.Link>
+            <Nav.Link className="navbar-font m-2" href="/Artikel">Berita</Nav.Link>
             <Link to="/login" className="pt-1">
             <Button variant="outline-primary" className=" h-30" >Admin</Button>
             </Link>

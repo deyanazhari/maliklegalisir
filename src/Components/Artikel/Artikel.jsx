@@ -20,7 +20,7 @@ export default class Artikel extends Component {
          }
         }
         componentDidMount(){
-         axios.get(api + '/article?page=1&per_pages=999').then(res=> {
+         axios.get(api + '/article?page=1&per_pages=5').then(res=> {
              
              this.setState({
                  artikel:res.data.data
@@ -38,35 +38,34 @@ export default class Artikel extends Component {
             <Navbar/>
             <Container fluid className="home-layanan">
                 <div className="text-center padding__artikel">
-                <h1 className="layanan-text ">Artikel</h1>
+                <h1 className="layanan-text ">Berita</h1>
                 <div className='line__artikel'></div>
                 </div>
             </Container>
             <Container fluid className="p-5 pb-5 artikel__body ">
             <div className="justify-content-center text-center p-5">
-             <h1 className="layanan-kami text-center ">Artikel </h1>
+             <h1 className="layanan-kami text-center ">Berita Terbaru </h1>
             </div>
             
             
             {this.state.artikel.map(artikel => 
-        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel__artikel rounded-3 " key={artikel.id} godetail={this.handleDetail}>
+        <Card className="my-sm-4 my-3 mx-sm-2 border-0 artikel__home rounded-3 " id="layanan">
             <Row>
-                <Col className="col-md-2 col-12  ">
-                  <div className='artikel__img text-center justify-content-center'>
+                <Col className="col-md-4 col-12  ">
+                  <div className='ps-sm-3 pt-2 pt-sm-0 home__artikel__img'>
                     <img src={artikel.imageUrl} className="img-fluid " />
                     </div>
                 </Col>
-                <Col className="col-md-10 col-12" >
-                    <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-sm-justify pt-sm-4 pt-3">{artikel.title}</h1>
-                    <h6 className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify "> {artikel.description.substring(0, 270)}...</h6>
-                    <div className='pt-sm-5  ms-3 ps-sm-0' >
-                    <Link to={`/DetailArtikel/${artikel.id}`}  className='artikel__selengkapnya' >Selengkapnya</Link>
+                <Col className="col-md-8 col-12">
+                    <h1 className="artikel-title m-3 mr-sm-5 m-sm-0 text-justify pt-sm-4">{artikel.title}</h1>
+                    <Card.Text className="artikel-text m-3 mr-sm-5 m-sm-0 text-justify pb-2 "> {artikel.description.substring(0,200)}...</Card.Text>
+                  <div className='mt-5 mt-sm-5 text-end pe-3'>
+                    <Link to={`/DetailArtikel/${artikel.id}`} className='artikel__selengkapnya mt-sm-5 ms-3 ms-sm-0'>Selengkapnya</Link>
+                    {/* {`/DetailArtikel/${artikel.id}`} */}
                     </div>
-                    {/* href={`/DetailArtikel/${artikel.id}`}  */}
                 </Col>
             </Row>
         </Card>
-        
         )}
             </Container>
             <Footer/>
